@@ -1,0 +1,21 @@
+buildings:
+
+
+[
+{
+"id": "1",
+"name": "Middlesex Collage",
+"position":{
+"lat":43.009381,
+"lng":-81.270117
+}
+},
+{
+"id": "2",
+"name": "Physics and Astronomy",
+"position":{
+"lat":43.009381,
+"lng":-81.270117
+}
+}
+]

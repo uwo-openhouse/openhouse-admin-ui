@@ -7,19 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install Dependencies
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
+      - name: Install Dependencies
+        run: yarn install
       - name: Lint
         run: yarn run lint:eslint
   stylelint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install Dependencies
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
+      - name: Install Dependencies
+        run: yarn install
       - name: Lint
         run: yarn run lint:stylelint

@@ -6,6 +6,7 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Install Dependencies
         uses: actions/setup-node@v1
         with:
@@ -15,6 +16,7 @@ jobs:
   stylelint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Install Dependencies
         uses: actions/setup-node@v1
         with:

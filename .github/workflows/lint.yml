@@ -1,0 +1,23 @@
+name: Lint
+
+on: [push, pull_request]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Lint
+        run: yarn run lint:eslint
+  stylelint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Lint
+        run: yarn run lint:stylelint

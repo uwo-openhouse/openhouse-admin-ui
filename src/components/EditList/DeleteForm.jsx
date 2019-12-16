@@ -29,7 +29,7 @@ to confirm
             </Form.Group>
             <Button
                 variant="danger"
-                active={enteredName === name}
+                disabled={enteredName !== name}
                 onClick={() => {
                     onDelete(id);
                     onClose();

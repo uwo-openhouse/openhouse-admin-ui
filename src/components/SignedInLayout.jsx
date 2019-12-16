@@ -1,7 +1,8 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
-import { Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './SignedInLayout.scss';
 
 
 const SignedInLayout = ({ children }) => (
@@ -10,9 +11,14 @@ const SignedInLayout = ({ children }) => (
             <Link to="/">
                 <Navbar.Brand>Open House</Navbar.Brand>
             </Link>
-            <Link to="/locations">
-                <Navbar.Text>Buildings</Navbar.Text>
-            </Link>
+            <Nav>
+                <Link to="/locations">
+                    <Navbar.Text>Buildings</Navbar.Text>
+                </Link>
+                <Link to="/departments">
+                    <Navbar.Text>Departments</Navbar.Text>
+                </Link>
+            </Nav>
         </Navbar>
         {children}
     </div>

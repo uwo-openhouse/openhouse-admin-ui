@@ -13,3 +13,16 @@ export const handleRequestError = (response) => {
 };
 
 export const pullOutJson = response => response.json();
+
+export const buildMap = (responseJson) => {
+    const map = {};
+    responseJson.forEach((element) => {
+        const { id } = element;
+        map[id] = element;
+    });
+    return map;
+};
+
+export const MODAL_TYPES = Object.freeze({
+    none: 0, edit: 1, new: 2, delete: 3,
+});

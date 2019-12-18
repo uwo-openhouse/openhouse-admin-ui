@@ -1,5 +1,5 @@
 import locationReducer, * as locations from './locations';
-import errorReducer from './errors';
+import errorReducer, * as errors from './errors';
 import departmentReducer, * as departments from './departments';
 
 export default {
@@ -19,3 +19,5 @@ export const isDepartmentsLoaded = state => departments.isLoaded(state.departmen
 export const getAllDepartments = state => departments.getAllDepartments(state.departments);
 
 export const getDepartment = (state, id) => departments.getDepartment(state.departments, id);
+
+export const getErrors = state => errors.getErrors(state.errors);

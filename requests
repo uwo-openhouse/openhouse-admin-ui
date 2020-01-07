@@ -19,3 +19,17 @@ buildings:
 }
 }
 ]
+
+
+[
+{
+"id": "1",
+"name": "Science",
+"color": "#fff"
+},
+{
+"id": "2",
+"name": "Engineering",
+"color": "#315C46"
+}
+]

@@ -70,5 +70,5 @@ export const sendDeleteOpenHouse = (openHouseID) => {
 
 export const getNewOpenHouse = () => ({
     name: '',
-    date: normalizeDate(moment().utc().unix()),
+    date: normalizeDate(moment().unix()),
 });

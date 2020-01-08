@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
 
 import { Button, Form } from 'react-bootstrap';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import { SingleDatePicker } from 'react-dates';
 import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
 import aphroditeInterface from 'react-with-styles-interface-aphrodite';
 import DefaultTheme from 'react-dates/lib/theme/DefaultTheme';
-import { normalizeDate } from '../../service';
+import { getDefaultTimezone, normalizeDate } from '../../service';
 
 ThemedStyleSheet.registerInterface(aphroditeInterface);
 ThemedStyleSheet.registerTheme(DefaultTheme);
@@ -28,7 +28,7 @@ const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
             <Form.Group>
                 <Form.Label>Date</Form.Label>
                 <SingleDatePicker
-                    date={moment.unix(date).utc()}
+                    date={moment.unix(date).tz(getDefaultTimezone())}
                     onDateChange={newDate => setDate(normalizeDate(newDate.unix()))}
                     focused={datePickerFocused}
                     onFocusChange={({ focused }) => setDatePickerFocused(focused)}

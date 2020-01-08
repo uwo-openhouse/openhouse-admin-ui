@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getAllDepartments, isDepartmentsLoaded } from '../../reducers';
 import Loadable from '../../components/Loadable';
-import DepartmentEditList from '../../components/EditList/DepartmentEditList';
+import DepartmentEditList from '../../components/Department/DepartmentEditList';
 
 
 const mapStateToProps = state => ({

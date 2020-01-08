@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
-import { MODAL_TYPES } from '../../service';
-import EditList from './EditList';
-import DepartmentEditListElement from './DepartmentEditListElement';
+import EditList from '../EditList/EditList';
+import LocationEditListElement from './LocationEditListElement';
 import CenteredModal from '../CenteredModal';
-import { getNewDepartment } from '../../service/departments';
-import DepartmentEditForm from '../../containers/Department/DepartmentEditForm';
-import DepartmentCreateForm from '../../containers/Department/DepartmentCreateForm';
-import DepartmentDeleteForm from '../../containers/Department/DepartmentDeleteForm';
+import LocationEditForm from '../../containers/Location/LocationEditForm';
+import LocationCreateForm from '../../containers/Location/LocationCreateForm';
+import { getNewLocation } from '../../service/locations';
+import LocationDeleteForm from '../../containers/Location/LocationDeleteForm';
+import { MODAL_TYPES } from '../../service';
 
-const DepartmentEditList = ({ departments }) => {
+const LocationEditList = ({ locations }) => {
     const [activeModal, setActiveModal] = useState(MODAL_TYPES.none);
     const [selectedID, setSelectedID] = useState(null);
     const closeModal = () => setActiveModal(MODAL_TYPES.none);
@@ -17,8 +17,8 @@ const DepartmentEditList = ({ departments }) => {
     return (
         <>
             <EditList
-                elements={departments}
-                ElementComponentType={DepartmentEditListElement}
+                elements={locations}
+                ElementComponentType={LocationEditListElement}
                 deleteVisible
                 editVisible
                 onEdit={(id) => {
@@ -33,37 +33,36 @@ const DepartmentEditList = ({ departments }) => {
             />
             <CenteredModal
                 onClose={closeModal}
-                title="Edit Department"
+                title="Edit Location"
                 isVisible={activeModal === MODAL_TYPES.edit}
             >
-                <DepartmentEditForm id={selectedID} onClose={closeModal} />
+                <LocationEditForm id={selectedID} onClose={closeModal} />
             </CenteredModal>
             <CenteredModal
                 onClose={closeModal}
-                title="Create Department"
+                title="Create Location"
                 isVisible={activeModal === MODAL_TYPES.new}
             >
-                <DepartmentCreateForm id={selectedID} onClose={closeModal} department={getNewDepartment()} />
+                <LocationCreateForm id={selectedID} onClose={closeModal} location={getNewLocation()} />
             </CenteredModal>
             <CenteredModal
                 onClose={closeModal}
-                title="Delete Department"
+                title="Delete Location"
                 isVisible={activeModal === MODAL_TYPES.delete}
             >
-                <DepartmentDeleteForm id={selectedID} onClose={closeModal} />
+                <LocationDeleteForm id={selectedID} onClose={closeModal} />
             </CenteredModal>
         </>
     );
 };
 
-DepartmentEditList.propTypes = {
-    departments: PropTypes.arrayOf(
+LocationEditList.propTypes = {
+    locations: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
-            color: PropTypes.string.isRequired,
         }),
     ).isRequired,
 };
 
-export default DepartmentEditList;
+export default LocationEditList;

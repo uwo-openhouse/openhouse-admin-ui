@@ -1,16 +1,15 @@
-import moment from 'moment';
 import {
-    getBackEndURL, handleRequestError, normalizeDate, pullOutJson,
+    getBackEndURL, handleRequestError, pullOutJson,
 } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
-export const fetchOpenHouses = () => {
+export const fetchEvents = () => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/openhouses`,
+        `${getBackEndURL()}/events`,
         {
             method: 'GET',
             headers,
@@ -20,46 +19,46 @@ export const fetchOpenHouses = () => {
         .then(pullOutJson);
 };
 
-export const sendEditOpenHouse = (openhouse) => {
+export const sendEditEvent = (event) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/openhouses`,
+        `${getBackEndURL()}/events`,
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(openhouse),
+            body: JSON.stringify(event),
         },
     )
         .then(handleRequestError);
 };
 
-export const sendNewOpenHouse = (openhouse) => {
+export const sendNewEvents = (events) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/openhouses`,
+        `${getBackEndURL()}/events`,
         {
             method: 'POST',
             headers,
-            body: JSON.stringify(openhouse),
+            body: JSON.stringify(events),
         },
     )
         .then(handleRequestError)
         .then(pullOutJson);
 };
 
-export const sendDeleteOpenHouse = (openHouseID) => {
+export const sendDeleteEvent = (openHouseID) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/openhouses/${openHouseID}`,
+        `${getBackEndURL()}/events/${openHouseID}`,
         {
             method: 'DELETE',
             headers,
@@ -68,7 +67,10 @@ export const sendDeleteOpenHouse = (openHouseID) => {
         .then(handleRequestError);
 };
 
-export const getNewOpenHouse = () => ({
+export const getNewEvent = () => ({
     name: '',
-    date: normalizeDate(moment().unix()),
+    description: '',
+    department: '',
+    building: '',
+    openHouse: '',
 });

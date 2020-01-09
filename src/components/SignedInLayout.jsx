@@ -21,6 +21,9 @@ const SignedInLayout = ({ children }) => (
                 <Link to="/openhouses">
                     <Navbar.Text>Open Houses</Navbar.Text>
                 </Link>
+                <Link to="/events">
+                    <Navbar.Text>Events</Navbar.Text>
+                </Link>
             </Nav>
         </Navbar>
         {children}

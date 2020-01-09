@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="added event editing">
+      <change afterPath="$PROJECT_DIR$/src/actions/events.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Events/EventEditForm.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Events/EventEditList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Events/EventEditListElement.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Events/EventEditListElement.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Events/EventCreateForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Events/EventDeleteForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Events/EventEditForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Events/EventEditList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Events/EventEditListElement.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/events.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditListElement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditListElement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignedInLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignedInLayout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/openHouses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/openHouses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +56,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/containers/Open House" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/containers/Events" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -61,18 +72,18 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/containers/Open House" />
-      <recent name="$PROJECT_DIR$/src/components/Open House" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/actions" />
-      <recent name="$PROJECT_DIR$/src/components" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/containers/Department" />
       <recent name="$PROJECT_DIR$/src/containers/Location" />
       <recent name="$PROJECT_DIR$/src/components/Location" />
       <recent name="$PROJECT_DIR$/src/components/Department" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/containers/Events" />
+      <recent name="$PROJECT_DIR$/src/containers/Open House" />
+      <recent name="$PROJECT_DIR$/src/components/Open House" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/actions" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -163,7 +174,7 @@
       <workItem from="1576525561655" duration="10022000" />
       <workItem from="1576610987513" duration="8460000" />
       <workItem from="1578448782310" duration="122000" />
-      <workItem from="1578515501373" duration="1803000" />
+      <workItem from="1578515501373" duration="10424000" />
     </task>
     <task id="LOCAL-00001" summary="added building editing">
       <created>1576437892899</created>
@@ -186,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578448863730</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added time zone support">
+      <created>1578517356583</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578517356583</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +228,9 @@
     <MESSAGE value="added building editing" />
     <MESSAGE value="added department editing" />
     <MESSAGE value="added open house editing" />
-    <option name="LAST_COMMIT_MESSAGE" value="added open house editing" />
+    <MESSAGE value="Added time zone support" />
+    <MESSAGE value="added event editing" />
+    <option name="LAST_COMMIT_MESSAGE" value="added event editing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2061" y="1016" width="722" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578434272693">
@@ -221,30 +241,30 @@
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="2076" y="939" width="624" height="551" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1576337524989" />
-    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2" timestamp="1578448856545">
+    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2" timestamp="1578533906479">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578448856545" />
-    <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1578516625650">
+    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578533906479" />
+    <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1578533906524">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.bottom/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578516625650" />
-    <state width="2470" height="385" key="GridCell.Tab.0.center" timestamp="1578516625650">
+    <state width="2470" height="385" key="GridCell.Tab.0.bottom/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578533906524" />
+    <state width="2470" height="385" key="GridCell.Tab.0.center" timestamp="1578533906524">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.center/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578516625650" />
-    <state width="2470" height="385" key="GridCell.Tab.0.left" timestamp="1578516625650">
+    <state width="2470" height="385" key="GridCell.Tab.0.center/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578533906524" />
+    <state width="2470" height="385" key="GridCell.Tab.0.left" timestamp="1578533906524">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.left/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578516625650" />
-    <state width="2470" height="385" key="GridCell.Tab.0.right" timestamp="1578516625650">
+    <state width="2470" height="385" key="GridCell.Tab.0.left/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578533906524" />
+    <state width="2470" height="385" key="GridCell.Tab.0.right" timestamp="1578533906524">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.right/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578516625650" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1576426501219">
+    <state width="2470" height="385" key="GridCell.Tab.0.right/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578533906524" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1578522880814">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1576426501219" />
+    <state width="498" height="446" key="SwitcherDM/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578522880814" />
     <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1578448875270">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
@@ -253,10 +273,14 @@
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="2161" y="1131" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1576437843957" />
-    <state x="66" y="0" width="1080" height="928" maximized="true" key="dock-window-1" timestamp="1576619176600">
+    <state x="1916" y="689" width="1080" height="928" key="dock-window-1" timestamp="1578521896113">
+      <screen x="1080" y="478" width="2560" height="1440" />
+    </state>
+    <state x="1916" y="689" width="1080" height="928" key="dock-window-1/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578521896113" />
+    <state x="0" y="505" width="1080" height="928" maximized="true" key="dock-window-2" timestamp="1578521896113">
       <screen x="0" y="505" width="1080" height="2055" />
     </state>
-    <state x="66" y="0" width="1080" height="928" maximized="true" key="dock-window-1/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1576619176600" />
+    <state x="0" y="505" width="1080" height="928" maximized="true" key="dock-window-2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578521896113" />
     <state x="2041" y="947" width="863" height="596" key="find.popup" timestamp="1578516319936">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>

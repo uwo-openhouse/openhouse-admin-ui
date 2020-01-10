@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
+import { Tab, Tabs } from 'react-bootstrap';
 import { MODAL_TYPES } from '../../service';
 import EditList from '../EditList/EditList';
 import CenteredModal from '../CenteredModal';
@@ -8,6 +9,7 @@ import EventEditForm from '../../containers/Events/EventEditForm';
 import EventDeleteForm from '../../containers/Events/EventDeleteForm';
 import { getNewEvent } from '../../service/events';
 import EventCreateForm from '../../containers/Events/EventCreateForm';
+import EventImportForm from '../../containers/Events/EventImportForm';
 
 const EventEditList = ({ events }) => {
     const [activeModal, setActiveModal] = useState(MODAL_TYPES.none);
@@ -43,7 +45,14 @@ const EventEditList = ({ events }) => {
                 title="Create Event"
                 isVisible={activeModal === MODAL_TYPES.new}
             >
-                <EventCreateForm id={selectedID} onClose={closeModal} event={getNewEvent()} />
+                <Tabs id="create-event-tabs" defaultActiveKey="import">
+                    <Tab eventKey="import" title="Import">
+                        <EventImportForm id={selectedID} onClose={closeModal} event={getNewEvent()} />
+                    </Tab>
+                    <Tab eventKey="create" title="Create">
+                        <EventCreateForm id={selectedID} onClose={closeModal} event={getNewEvent()} />
+                    </Tab>
+                </Tabs>
             </CenteredModal>
             <CenteredModal
                 onClose={closeModal}

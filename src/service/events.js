@@ -1,4 +1,6 @@
+import validate from 'validate.js';
 import {
+    createNameMap,
     getBackEndURL, handleRequestError, pullOutJson,
 } from './index';
 
@@ -74,3 +76,59 @@ export const getNewEvent = () => ({
     building: '',
     openHouse: '',
 });
+
+export const validateEventCSV = (events, buildingNames, departmentNames, openHouseNames) => {
+    const eventConstraints = {
+        name: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        description: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        department: {
+            presence: true,
+            inclusion: {
+                within: departmentNames,
+                message: '^%{value} is not a valid department',
+            },
+        },
+        building: {
+            presence: true,
+            inclusion: {
+                within: buildingNames,
+                message: '^%{value} is not a valid building',
+            },
+        },
+        openHouse: {
+            presence: true,
+            inclusion: {
+                within: openHouseNames,
+                message: '^%{value} is not a valid open house',
+            },
+        },
+    };
+
+    return events.map(event => validate(event, eventConstraints));
+};
+
+export const csvImportToEvents = (events, locations, departments, openHouses) => {
+    const locationNameMap = createNameMap(locations);
+    const departmentNameMap = createNameMap(departments);
+    const openHouseNameMap = createNameMap(openHouses);
+
+    return events.map(({
+        name, description, department, building, openHouse,
+    }) => ({
+        name,
+        description,
+        department: departmentNameMap[department],
+        building: locationNameMap[building],
+        openHouse: openHouseNameMap[openHouse],
+    }));
+};

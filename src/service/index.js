@@ -36,3 +36,11 @@ export const normalizeDate = date => moment
     .tz(getDefaultTimezone())
     .startOf('day')
     .unix();
+
+export const createNameMap = (elements) => {
+    const map = {};
+    elements.forEach(({ name, id }) => {
+        map[name] = id;
+    });
+    return map;
+};

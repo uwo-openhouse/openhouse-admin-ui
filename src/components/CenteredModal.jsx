@@ -9,7 +9,7 @@ const CenteredModal = ({
     <Modal
         show={isVisible}
         onHide={onClose}
-        size="lg"
+        size="xl"
         centered
     >
         <Modal.Header closeButton>

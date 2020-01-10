@@ -15,6 +15,10 @@ export default (state = DEFAULT_STATE, action) => {
         case actionTypes.DELETE_BUILDINGS_FAILURE:
         case actionTypes.EDIT_BUILDINGS_FAILURE:
         case actionTypes.FETCH_BUILDINGS_FAILURE:
+        case actionTypes.CREATE_OPEN_HOUSES_FAILURE:
+        case actionTypes.DELETE_OPEN_HOUSES_FAILURE:
+        case actionTypes.EDIT_OPEN_HOUSES_FAILURE:
+        case actionTypes.FETCH_OPEN_HOUSES_FAILURE:
             return {
                 ...state,
                 data: [...state.data, {

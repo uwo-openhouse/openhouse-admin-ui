@@ -38,8 +38,7 @@ const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
             <Button
                 variant="primary"
                 onClick={() => {
-                    onSave({ ...openHouse, name, date });
-                    onClose();
+                    onSave({ ...openHouse, name, date }).then(() => onClose());
                 }}
             >
                 Submit

@@ -81,8 +81,7 @@ const EventEditForm = ({
                 onClick={() => {
                     onSave({
                         ...event, name, description, department, building, openHouse,
-                    });
-                    onClose();
+                    }).then(() => onClose());
                 }}
             >
                 Submit

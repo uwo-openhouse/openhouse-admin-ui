@@ -31,8 +31,7 @@ to confirm
                 variant="danger"
                 disabled={enteredName !== name}
                 onClick={() => {
-                    onDelete(id);
-                    onClose();
+                    onDelete(id).then(() => onClose());
                 }}
             >
 Delete

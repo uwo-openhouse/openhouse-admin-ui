@@ -33,8 +33,7 @@ const LocationEditForm = ({ onClose, onSave, location }) => {
             <Button
                 variant="primary"
                 onClick={() => {
-                    onSave({ ...location, name, position });
-                    onClose();
+                    onSave({ ...location, name, position }).then(() => onClose());
                 }}
             >
                 Submit

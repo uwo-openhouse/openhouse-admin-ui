@@ -25,8 +25,7 @@ const DepartmentEditForm = ({ onClose, onSave, department }) => {
             <Button
                 variant="primary"
                 onClick={() => {
-                    onSave({ ...department, name, color });
-                    onClose();
+                    onSave({ ...department, name, color }).then(() => onClose());
                 }}
             >
                 Submit

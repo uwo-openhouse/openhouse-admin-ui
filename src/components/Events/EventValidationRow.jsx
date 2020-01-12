@@ -32,6 +32,7 @@ const EventValidationRow = ({ id, event, validation }) => {
         <tr className={`event-validation-row ${isInvalid && 'table-danger'}`}>
             {createCell('name')}
             {createCell('description')}
+            {createCell('time')}
             {createCell('department')}
             {createCell('building')}
             {createCell('openHouse')}

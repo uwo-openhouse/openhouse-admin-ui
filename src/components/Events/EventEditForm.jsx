@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import * as PropTypes from 'prop-types';
+import TimePicker from 'react-time-picker';
+import './EventEditForm.scss';
 
 const createOptions = options => options.map(({ id, name }) => (
     <option key={id} value={id}>
@@ -16,6 +18,7 @@ const EventEditForm = ({
     const [department, setDepartment] = useState(event.department);
     const [building, setBuilding] = useState(event.building);
     const [openHouse, setOpenHouse] = useState(event.openHouse);
+    const [time, setTime] = useState(event.time);
 
     return (
         <Form>
@@ -32,6 +35,10 @@ const EventEditForm = ({
                     defaultValue={description}
                     onChange={changeEvent => setDescription(changeEvent.target.value)}
                 />
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Time</Form.Label>
+                <TimePicker onChange={setTime} value={time} maxDetail="minute" />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Department</Form.Label>
@@ -60,7 +67,7 @@ const EventEditForm = ({
             <Form.Group>
                 <Form.Label>Open House</Form.Label>
                 <Form.Control
-                    defaultValue={building}
+                    defaultValue={openHouse}
                     placeholder="Select OpenHouse"
                     as="select"
                     onChange={(changeEvent => setOpenHouse(changeEvent.target.value))}
@@ -74,8 +81,7 @@ const EventEditForm = ({
                 onClick={() => {
                     onSave({
                         ...event, name, description, department, building, openHouse,
-                    });
-                    onClose();
+                    }).then(() => onClose());
                 }}
             >
                 Submit
@@ -93,6 +99,7 @@ EventEditForm.propTypes = {
         department: PropTypes.string.isRequired,
         building: PropTypes.string.isRequired,
         openHouse: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
     }).isRequired,
     departments: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,

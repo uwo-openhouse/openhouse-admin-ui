@@ -1,0 +1,22 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+.react-time-picker {
+    display: block;
+    > * {
+        width: 100%;
+        height: $input-height;
+        padding: $input-padding-y ($input-padding-x + 1rem) $input-padding-y $input-padding-x;
+        font-family: $input-font-family;
+        @include font-size($input-font-size);
+        font-weight: $input-font-weight;
+        line-height: $input-line-height;
+        vertical-align: middle;
+        background: $input-bg;
+        border: $input-border-width solid $input-border-color;
+        @include border-radius($border-radius, 0);
+        @include box-shadow(inset 0 1px 2px rgba($black, .075));
+        appearance: none;
+    }
+}

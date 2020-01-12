@@ -32,6 +32,7 @@ const EventImportForm = ({
                         <tr>
                             <th>Name</th>
                             <th>Description</th>
+                            <th>Time</th>
                             <th>Department</th>
                             <th>Building</th>
                             <th>Open House</th>

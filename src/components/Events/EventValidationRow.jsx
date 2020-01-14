@@ -35,6 +35,7 @@ const EventValidationRow = ({ id, event, validation }) => {
             {createCell('time')}
             {createCell('area')}
             {createCell('building')}
+            {createCell('room')}
             {createCell('openHouse')}
         </tr>
     );

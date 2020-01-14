@@ -135,6 +135,7 @@ EventEditList.propTypes = {
             building: PropTypes.string.isRequired,
             openHouse: PropTypes.string.isRequired,
             time: PropTypes.string.isRequired,
+            room: PropTypes.string.isRequired,
         }),
     ).isRequired,
     openHouses: PropTypes.arrayOf(

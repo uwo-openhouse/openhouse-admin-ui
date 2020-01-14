@@ -19,6 +19,7 @@ const EventEditForm = ({
     const [building, setBuilding] = useState(event.building);
     const [openHouse, setOpenHouse] = useState(event.openHouse);
     const [time, setTime] = useState(event.time);
+    const [room, setRoom] = useState(event.room);
 
     return (
         <Form>
@@ -65,6 +66,10 @@ const EventEditForm = ({
                 </Form.Control>
             </Form.Group>
             <Form.Group>
+                <Form.Label>Room</Form.Label>
+                <Form.Control placeholder="room" defaultValue={room} onChange={changeEvent => setRoom(changeEvent.target.value)} />
+            </Form.Group>
+            <Form.Group>
                 <Form.Label>Open House</Form.Label>
                 <Form.Control
                     defaultValue={openHouse}
@@ -80,7 +85,7 @@ const EventEditForm = ({
                 variant="primary"
                 onClick={() => {
                     onSave({
-                        ...event, name, description, area, building, openHouse,
+                        ...event, name, description, area, building, openHouse, time, room,
                     }).then(() => onClose());
                 }}
             >
@@ -100,6 +105,7 @@ EventEditForm.propTypes = {
         building: PropTypes.string.isRequired,
         openHouse: PropTypes.string.isRequired,
         time: PropTypes.string.isRequired,
+        room: PropTypes.string.isRequired,
     }).isRequired,
     areas: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,

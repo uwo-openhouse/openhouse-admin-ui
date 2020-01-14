@@ -77,6 +77,7 @@ export const getNewEvent = () => ({
     building: '',
     openHouse: '',
     time: '00:00',
+    room: '',
 });
 
 validate.validators.time = (value, { is24Hour, is12Hour, message }) => {
@@ -125,6 +126,9 @@ export const validateEventCSV = (events, buildingNames, areaNames, openHouseName
                 message: '^%{value} is not a valid building',
             },
         },
+        room: {
+            presence: true,
+        },
         openHouse: {
             presence: true,
             inclusion: {
@@ -143,10 +147,11 @@ export const csvImportToEvents = (events, locations, areas, openHouses) => {
     const openHouseNameMap = createNameMap(openHouses);
 
     return events.map(({
-        name, description, area, building, openHouse, time,
+        name, description, area, building, openHouse, time, room,
     }) => ({
         name,
         description,
+        room,
         time: moment(time, ['H:m', 'h:m A'], true).format('HH:mm'),
         area: areaNameMap[area],
         building: locationNameMap[building],

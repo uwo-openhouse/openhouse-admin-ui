@@ -1,37 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/Area/AreaCreateForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Area/AreaEditForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Area/AreaEditList.js" afterDir="false" />
+    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="added rooms to events">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/departments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/areas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Department/DepartmentEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Area/AreaEditForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Department/DepartmentEditList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Area/AreaEditList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Department/DepartmentEditListElement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Area/AreaEditListElement.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventEditForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventEditList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditListElement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventEditListElement.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Events/EventImportForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventImportForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Events/EventValidationRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventValidationRow.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignedInLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignedInLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Department/DepartmentCreateForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Department/DepartmentDeleteForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Area/AreaDeleteForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Department/DepartmentEditForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Department/DepartmentEditList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Events/EventCreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/EventCreateForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Events/EventEditForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/EventEditForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Events/EventEditList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/EventEditList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Events/EventEditListElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/EventEditListElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Events/EventImportForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/EventImportForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/departments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/areas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/departments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/areas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/events.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +168,7 @@
       <workItem from="1578690206780" duration="4263000" />
       <workItem from="1578848905577" duration="9222000" />
       <workItem from="1579031074612" duration="90000" />
-      <workItem from="1579034768305" duration="678000" />
+      <workItem from="1579034768305" duration="4010000" />
     </task>
     <task id="LOCAL-00001" summary="added building editing">
       <created>1576437892899</created>
@@ -243,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578862059012</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="changed departments to areas">
+      <created>1579035667267</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1579035667267</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +254,8 @@
     <MESSAGE value="added event editing" />
     <MESSAGE value="added event importing from csv" />
     <MESSAGE value="added time support for events and filtering" />
-    <option name="LAST_COMMIT_MESSAGE" value="added time support for events and filtering" />
+    <MESSAGE value="changed departments to areas" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed departments to areas" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2061" y="1016" width="722" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578434272693">
@@ -286,10 +270,10 @@
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="2126" y="960" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578604585566" />
-    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2" timestamp="1578862055591">
+    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2" timestamp="1579042730609">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578862055591" />
+    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579042730609" />
     <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1579035415779">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
@@ -310,10 +294,10 @@
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578522880814" />
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1578616432365">
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579035673945">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578616432365" />
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579035673945" />
     <state x="2050" y="829" width="676" height="771" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1578851838924">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>

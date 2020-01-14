@@ -1,109 +1,109 @@
 import actionTypes from './actionTypes';
 import {
-    fetchDepartments, sendDeleteDepartment, sendEditDepartment, sendNewDepartment,
-} from '../service/departments';
+    fetchAreas, sendDeleteArea, sendEditArea, sendNewArea,
+} from '../service/areas';
 
 
 // eslint-disable-next-line import/prefer-default-export
-export const getDepartments = () => (dispatch) => {
+export const getAreas = () => (dispatch) => {
     dispatch({
-        type: actionTypes.FETCH_DEPARTMENTS_STARTED,
+        type: actionTypes.FETCH_AREAS_STARTED,
     });
 
-    return fetchDepartments()
+    return fetchAreas()
         .then((response) => {
             dispatch({
-                type: actionTypes.FETCH_DEPARTMENTS_SUCCESS,
+                type: actionTypes.FETCH_AREAS_SUCCESS,
                 payload: response,
             });
         })
         .catch((error) => {
             dispatch({
-                type: actionTypes.FETCH_DEPARTMENTS_FAILURE,
+                type: actionTypes.FETCH_AREAS_FAILURE,
                 payload: error,
             });
         })
         .finally(() => {
             dispatch({
-                type: actionTypes.FETCH_DEPARTMENTS_ENDED,
+                type: actionTypes.FETCH_AREAS_ENDED,
             });
         });
 };
 
-export const editDepartment = location => (dispatch) => {
+export const editArea = location => (dispatch) => {
     dispatch({
-        type: actionTypes.EDIT_DEPARTMENTS_STARTED,
+        type: actionTypes.EDIT_AREAS_STARTED,
         payload: location,
     });
 
-    return sendEditDepartment(location)
+    return sendEditArea(location)
         .then(() => {
             dispatch({
-                type: actionTypes.EDIT_DEPARTMENTS_SUCCESS,
+                type: actionTypes.EDIT_AREAS_SUCCESS,
                 payload: location,
             });
         })
         .catch((error) => {
             dispatch({
-                type: actionTypes.FETCH_DEPARTMENTS_FAILURE,
+                type: actionTypes.FETCH_AREAS_FAILURE,
                 payload: error,
             });
         })
         .finally(() => {
             dispatch({
-                type: actionTypes.EDIT_DEPARTMENTS_ENDED,
+                type: actionTypes.EDIT_AREAS_ENDED,
             });
         });
 };
 
-export const createDepartment = location => (dispatch) => {
+export const createArea = location => (dispatch) => {
     dispatch({
-        type: actionTypes.CREATE_DEPARTMENTS_STARTED,
+        type: actionTypes.CREATE_AREAS_STARTED,
         payload: location,
     });
 
-    return sendNewDepartment(location)
+    return sendNewArea(location)
         .then((response) => {
             dispatch({
-                type: actionTypes.CREATE_DEPARTMENTS_SUCCESS,
+                type: actionTypes.CREATE_AREAS_SUCCESS,
                 payload: response,
             });
         })
         .catch((error) => {
             dispatch({
-                type: actionTypes.CREATE_DEPARTMENTS_FAILURE,
+                type: actionTypes.CREATE_AREAS_FAILURE,
                 payload: error,
             });
         })
         .finally(() => {
             dispatch({
-                type: actionTypes.CREATE_DEPARTMENTS_ENDED,
+                type: actionTypes.CREATE_AREAS_ENDED,
             });
         });
 };
 
-export const deleteDepartment = locationID => (dispatch) => {
+export const deleteArea = locationID => (dispatch) => {
     dispatch({
-        type: actionTypes.DELETE_DEPARTMENTS_STARTED,
+        type: actionTypes.DELETE_AREAS_STARTED,
         payload: locationID,
     });
 
-    return sendDeleteDepartment(locationID)
+    return sendDeleteArea(locationID)
         .then(() => {
             dispatch({
-                type: actionTypes.DELETE_DEPARTMENTS_SUCCESS,
+                type: actionTypes.DELETE_AREAS_SUCCESS,
                 payload: locationID,
             });
         })
         .catch((error) => {
             dispatch({
-                type: actionTypes.DELETE_DEPARTMENTS_FAILURE,
+                type: actionTypes.DELETE_AREAS_FAILURE,
                 payload: error,
             });
         })
         .finally(() => {
             dispatch({
-                type: actionTypes.DELETE_DEPARTMENTS_ENDED,
+                type: actionTypes.DELETE_AREAS_ENDED,
             });
         });
 };

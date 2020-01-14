@@ -1,12 +1,12 @@
 import locationReducer, * as locations from './locations';
 import errorReducer, * as errors from './errors';
-import departmentReducer, * as departments from './departments';
+import areaReducer, * as areas from './areas';
 import openHouseReducer, * as openHouses from './openHouses';
 import eventReducer, * as events from './events';
 
 export default {
     locations: locationReducer,
-    departments: departmentReducer,
+    areas: areaReducer,
     openHouses: openHouseReducer,
     events: eventReducer,
     errors: errorReducer,
@@ -18,11 +18,11 @@ export const getAllLocations = state => locations.getAllLocations(state.location
 
 export const getLocation = (state, id) => locations.getLocation(state.locations, id);
 
-export const isDepartmentsLoaded = state => departments.isLoaded(state.departments);
+export const isAreasLoaded = state => areas.isLoaded(state.areas);
 
-export const getAllDepartments = state => departments.getAllDepartments(state.departments);
+export const getAllAreas = state => areas.getAllAreas(state.areas);
 
-export const getDepartment = (state, id) => departments.getDepartment(state.departments, id);
+export const getArea = (state, id) => areas.getArea(state.areas, id);
 
 export const getErrors = state => errors.getErrors(state.errors);
 

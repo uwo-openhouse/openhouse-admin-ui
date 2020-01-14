@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { getDepartment, getLocation, getOpenHouse } from '../../reducers';
+import { getArea, getLocation, getOpenHouse } from '../../reducers';
 import EventEditListElement from '../../components/Events/EventEditListElement';
 
-const mapStateToProps = (state, { building, openHouse, department }) => ({
+const mapStateToProps = (state, { building, openHouse, area }) => ({
     buildingName: getLocation(state, building).name,
     openHouseName: getOpenHouse(state, openHouse).name,
-    departmentName: getDepartment(state, department).name,
+    areaName: getArea(state, area).name,
 });
 
 export default connect(mapStateToProps)(EventEditListElement);

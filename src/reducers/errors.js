@@ -7,10 +7,10 @@ const DEFAULT_STATE = {
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
-        case actionTypes.CREATE_DEPARTMENTS_FAILURE:
-        case actionTypes.DELETE_DEPARTMENTS_FAILURE:
-        case actionTypes.EDIT_DEPARTMENTS_FAILURE:
-        case actionTypes.FETCH_DEPARTMENTS_FAILURE:
+        case actionTypes.CREATE_AREAS_FAILURE:
+        case actionTypes.DELETE_AREAS_FAILURE:
+        case actionTypes.EDIT_AREAS_FAILURE:
+        case actionTypes.FETCH_AREAS_FAILURE:
         case actionTypes.CREATE_BUILDINGS_FAILURE:
         case actionTypes.DELETE_BUILDINGS_FAILURE:
         case actionTypes.EDIT_BUILDINGS_FAILURE:

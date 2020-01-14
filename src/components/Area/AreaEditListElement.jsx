@@ -4,7 +4,7 @@ import Color from 'color';
 import React from 'react';
 
 
-const DepartmentEditListElement = ({ name, color }) => (
+const AreaEditListElement = ({ name, color }) => (
     <>
         <Card.Title>{name}</Card.Title>
         <Card.Text>
@@ -20,9 +20,9 @@ const DepartmentEditListElement = ({ name, color }) => (
     </>
 );
 
-DepartmentEditListElement.propTypes = {
+AreaEditListElement.propTypes = {
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
 };
 
-export default DepartmentEditListElement;
+export default AreaEditListElement;

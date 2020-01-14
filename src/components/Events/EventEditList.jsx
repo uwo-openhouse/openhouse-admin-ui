@@ -15,7 +15,7 @@ import { getNewEvent } from '../../service/events';
 import EventCreateForm from '../../containers/Events/EventCreateForm';
 import EventImportForm from '../../containers/Events/EventImportForm';
 
-const EventEditList = ({ events, openHouses, departments }) => {
+const EventEditList = ({ events, openHouses, areas }) => {
     const [activeModal, setActiveModal] = useState(MODAL_TYPES.none);
     const [selectedID, setSelectedID] = useState(null);
     const [filter, setFilter] = useState({});
@@ -47,7 +47,7 @@ const EventEditList = ({ events, openHouses, departments }) => {
                             <Form.Label>Open House</Form.Label>
                         </Col>
                         <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1 }}>
-                            <Form.Label>Department</Form.Label>
+                            <Form.Label>Area</Form.Label>
                         </Col>
                         <Col xs={{ span: 12, order: 1 }} md={{ span: 6, order: 2 }}>
                             <Form.Control
@@ -65,13 +65,13 @@ const EventEditList = ({ events, openHouses, departments }) => {
                         <Col xs={{ span: 12, order: 3 }} md={{ span: 6, order: 3 }}>
                             <Form.Control
                                 defaultValue=""
-                                value={filter.department}
+                                value={filter.area}
                                 as="select"
-                                onChange={(changeEvent => updateFilter('department', changeEvent.target.value))}
+                                onChange={(changeEvent => updateFilter('area', changeEvent.target.value))}
                             >
                                 <option value="">All</option>
-                                {departments.map(department => (
-                                    <option key={department.id} value={department.id}>{department.name}</option>
+                                {areas.map(area => (
+                                    <option key={area.id} value={area.id}>{area.name}</option>
                                 ))}
                             </Form.Control>
                         </Col>
@@ -131,7 +131,7 @@ EventEditList.propTypes = {
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
-            department: PropTypes.string.isRequired,
+            area: PropTypes.string.isRequired,
             building: PropTypes.string.isRequired,
             openHouse: PropTypes.string.isRequired,
             time: PropTypes.string.isRequired,
@@ -143,7 +143,7 @@ EventEditList.propTypes = {
             name: PropTypes.string.isRequired,
         }),
     ).isRequired,
-    departments: PropTypes.arrayOf(
+    areas: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,

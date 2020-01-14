@@ -4,9 +4,9 @@ import { SketchPicker } from 'react-color';
 import * as PropTypes from 'prop-types';
 
 
-const DepartmentEditForm = ({ onClose, onSave, department }) => {
-    const [name, setName] = useState(department.name);
-    const [color, setColor] = useState(department.color);
+const AreaEditForm = ({ onClose, onSave, area }) => {
+    const [name, setName] = useState(area.name);
+    const [color, setColor] = useState(area.color);
 
     return (
         <Form>
@@ -25,7 +25,7 @@ const DepartmentEditForm = ({ onClose, onSave, department }) => {
             <Button
                 variant="primary"
                 onClick={() => {
-                    onSave({ ...department, name, color }).then(() => onClose());
+                    onSave({ ...area, name, color }).then(() => onClose());
                 }}
             >
                 Submit
@@ -34,13 +34,13 @@ const DepartmentEditForm = ({ onClose, onSave, department }) => {
     );
 };
 
-DepartmentEditForm.propTypes = {
+AreaEditForm.propTypes = {
     onClose: PropTypes.func.isRequired,
     onSave: PropTypes.func.isRequired,
-    department: PropTypes.shape({
+    area: PropTypes.shape({
         name: PropTypes.string.isRequired,
         color: PropTypes.string.isRequired,
     }).isRequired,
 };
 
-export default DepartmentEditForm;
+export default AreaEditForm;

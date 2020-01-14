@@ -14,14 +14,14 @@ const papaparseOptions = {
 };
 
 const EventImportForm = ({
-    onClose, onSave, locations, departments, openHouses,
+    onClose, onSave, locations, areas, openHouses,
 }) => {
     const [events, setEvents] = useState([]);
     const locationNames = locations.map(location => location.name);
-    const departmentNames = departments.map(department => department.name);
+    const areaNames = areas.map(area => area.name);
     const openHouseNames = openHouses.map(openHouse => openHouse.name);
 
-    const validation = validateEventCSV(events, locationNames, departmentNames, openHouseNames);
+    const validation = validateEventCSV(events, locationNames, areaNames, openHouseNames);
     const hasEvents = events.length > 0;
     if (hasEvents) {
         return (
@@ -33,7 +33,7 @@ const EventImportForm = ({
                             <th>Name</th>
                             <th>Description</th>
                             <th>Time</th>
-                            <th>Department</th>
+                            <th>Area</th>
                             <th>Building</th>
                             <th>Open House</th>
                         </tr>
@@ -50,7 +50,7 @@ const EventImportForm = ({
                     disabled={validation.some(validationError => (validationError !== undefined))}
                     variant="primary"
                     onClick={() => {
-                        onSave(csvImportToEvents(events, locations, departments, openHouses)).then(() => onClose());
+                        onSave(csvImportToEvents(events, locations, areas, openHouses)).then(() => onClose());
                     }}
                 >
                     Submit
@@ -85,7 +85,7 @@ EventImportForm.propTypes = {
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
-    departments: PropTypes.arrayOf(PropTypes.shape({
+    areas: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,

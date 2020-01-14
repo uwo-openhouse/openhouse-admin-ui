@@ -1,13 +1,13 @@
 import { getBackEndURL, handleRequestError, pullOutJson } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
-export const fetchDepartments = () => {
+export const fetchAreas = () => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/departments`,
+        `${getBackEndURL()}/areas`,
         {
             method: 'GET',
             headers,
@@ -17,46 +17,46 @@ export const fetchDepartments = () => {
         .then(pullOutJson);
 };
 
-export const sendEditDepartment = (department) => {
+export const sendEditArea = (area) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/departments`,
+        `${getBackEndURL()}/areas`,
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(department),
+            body: JSON.stringify(area),
         },
     )
         .then(handleRequestError);
 };
 
-export const sendNewDepartment = (department) => {
+export const sendNewArea = (area) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/departments`,
+        `${getBackEndURL()}/areas`,
         {
             method: 'POST',
             headers,
-            body: JSON.stringify(department),
+            body: JSON.stringify(area),
         },
     )
         .then(handleRequestError)
         .then(pullOutJson);
 };
 
-export const sendDeleteDepartment = (departmentID) => {
+export const sendDeleteArea = (areaID) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/departments/${departmentID}`,
+        `${getBackEndURL()}/areas/${areaID}`,
         {
             method: 'DELETE',
             headers,
@@ -68,7 +68,7 @@ export const sendDeleteDepartment = (departmentID) => {
 
 export const getDefaultColor = () => process.env.REACT_APP_DEFAULT_COLOR;
 
-export const getNewDepartment = () => ({
+export const getNewArea = () => ({
     name: '',
     color: getDefaultColor(),
 });

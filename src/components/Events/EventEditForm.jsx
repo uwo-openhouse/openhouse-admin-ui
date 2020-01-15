@@ -11,14 +11,15 @@ const createOptions = options => options.map(({ id, name }) => (
 ));
 
 const EventEditForm = ({
-    onClose, onSave, event, openHouses, locations, departments,
+    onClose, onSave, event, openHouses, locations, areas,
 }) => {
     const [name, setName] = useState(event.name);
     const [description, setDescription] = useState(event.description);
-    const [department, setDepartment] = useState(event.department);
+    const [area, setArea] = useState(event.area);
     const [building, setBuilding] = useState(event.building);
     const [openHouse, setOpenHouse] = useState(event.openHouse);
     const [time, setTime] = useState(event.time);
+    const [room, setRoom] = useState(event.room);
 
     return (
         <Form>
@@ -41,15 +42,15 @@ const EventEditForm = ({
                 <TimePicker onChange={setTime} value={time} maxDetail="minute" />
             </Form.Group>
             <Form.Group>
-                <Form.Label>Department</Form.Label>
+                <Form.Label>Area</Form.Label>
                 <Form.Control
-                    defaultValue={department}
-                    placeholder="Select Department"
+                    defaultValue={area}
+                    placeholder="Select Area"
                     as="select"
-                    onChange={(changeEvent => setDepartment(changeEvent.target.value))}
+                    onChange={(changeEvent => setArea(changeEvent.target.value))}
                 >
-                    <option disabled value="">Select Department</option>
-                    {createOptions(departments)}
+                    <option disabled value="">Select Area</option>
+                    {createOptions(areas)}
                 </Form.Control>
             </Form.Group>
             <Form.Group>
@@ -63,6 +64,10 @@ const EventEditForm = ({
                     <option disabled value="">Select Building</option>
                     {createOptions(locations)}
                 </Form.Control>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Room</Form.Label>
+                <Form.Control placeholder="room" defaultValue={room} onChange={changeEvent => setRoom(changeEvent.target.value)} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Open House</Form.Label>
@@ -80,7 +85,7 @@ const EventEditForm = ({
                 variant="primary"
                 onClick={() => {
                     onSave({
-                        ...event, name, description, department, building, openHouse,
+                        ...event, name, description, area, building, openHouse, time, room,
                     }).then(() => onClose());
                 }}
             >
@@ -96,12 +101,13 @@ EventEditForm.propTypes = {
     event: PropTypes.shape({
         name: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        department: PropTypes.string.isRequired,
+        area: PropTypes.string.isRequired,
         building: PropTypes.string.isRequired,
         openHouse: PropTypes.string.isRequired,
         time: PropTypes.string.isRequired,
+        room: PropTypes.string.isRequired,
     }).isRequired,
-    departments: PropTypes.arrayOf(PropTypes.shape({
+    areas: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,

@@ -2,7 +2,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import SignedInLayout from './SignedInLayout';
 import LocationEditList from '../containers/Location/LocationEditList';
-import DepartmentEditList from '../containers/Department/DepartmentEditList';
+import AreaEditList from '../containers/Area/AreaEditList';
 import ErrorList from '../containers/ErrorList/ErrorList';
 import OpenHouseEditList from '../containers/Open House/OpenHouseEditList';
 import EventEditList from '../containers/Events/EventEditList';
@@ -22,9 +22,9 @@ const Layout = () => (
                         <LocationEditList />
                     </SignedInLayout>
                 </Route>
-                <Route path="/departments" exact>
+                <Route path="/areas" exact>
                     <SignedInLayout>
-                        <DepartmentEditList />
+                        <AreaEditList />
                     </SignedInLayout>
                 </Route>
                 <Route path="/openhouses" exact>

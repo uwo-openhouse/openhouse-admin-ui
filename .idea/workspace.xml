@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="">
+    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="added rooms to events">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Department/DepartmentEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Department/DepartmentEditForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditList/DeleteForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditList/DeleteForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventEditForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Location/LocationEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Location/LocationEditForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventEditList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditListElement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventEditListElement.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/EventImportForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventImportForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/EventValidationRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventValidationRow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/events.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="wincam-add-openhouses" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -166,6 +167,8 @@
       <workItem from="1578673576858" duration="2102000" />
       <workItem from="1578690206780" duration="4263000" />
       <workItem from="1578848905577" duration="9222000" />
+      <workItem from="1579031074612" duration="90000" />
+      <workItem from="1579034768305" duration="4010000" />
     </task>
     <task id="LOCAL-00001" summary="added building editing">
       <created>1576437892899</created>
@@ -216,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578862059012</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="changed departments to areas">
+      <created>1579035667267</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1579035667267</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +254,8 @@
     <MESSAGE value="added event editing" />
     <MESSAGE value="added event importing from csv" />
     <MESSAGE value="added time support for events and filtering" />
-    <option name="LAST_COMMIT_MESSAGE" value="added time support for events and filtering" />
+    <MESSAGE value="changed departments to areas" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed departments to areas" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2061" y="1016" width="722" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578434272693">
@@ -259,34 +270,34 @@
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="2126" y="960" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578604585566" />
-    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2" timestamp="1578862055591">
+    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2" timestamp="1579042730609">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578862055591" />
-    <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1578860488539">
+    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579042730609" />
+    <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1579035415779">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.bottom/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578860488539" />
-    <state width="2470" height="385" key="GridCell.Tab.0.center" timestamp="1578860488539">
+    <state width="2470" height="385" key="GridCell.Tab.0.bottom/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579035415779" />
+    <state width="2470" height="385" key="GridCell.Tab.0.center" timestamp="1579035415779">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.center/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578860488539" />
-    <state width="2470" height="385" key="GridCell.Tab.0.left" timestamp="1578860488539">
+    <state width="2470" height="385" key="GridCell.Tab.0.center/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579035415779" />
+    <state width="2470" height="385" key="GridCell.Tab.0.left" timestamp="1579035415778">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.left/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578860488539" />
-    <state width="2470" height="385" key="GridCell.Tab.0.right" timestamp="1578860488539">
+    <state width="2470" height="385" key="GridCell.Tab.0.left/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579035415778" />
+    <state width="2470" height="385" key="GridCell.Tab.0.right" timestamp="1579035415779">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.right/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578860488539" />
+    <state width="2470" height="385" key="GridCell.Tab.0.right/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579035415779" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1578522880814">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578522880814" />
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1578616432365">
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579035673945">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578616432365" />
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579035673945" />
     <state x="2050" y="829" width="676" height="771" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1578851838924">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
@@ -303,18 +314,18 @@
       <screen x="0" y="505" width="1080" height="2055" />
     </state>
     <state x="0" y="505" width="1080" height="928" maximized="true" key="dock-window-2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578521896113" />
-    <state x="2041" y="947" width="863" height="596" key="find.popup" timestamp="1578546527952">
+    <state x="2041" y="947" width="863" height="596" key="find.popup" timestamp="1579035442313">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="2041" y="947" width="863" height="596" key="find.popup/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578546527952" />
+    <state x="2041" y="947" width="863" height="596" key="find.popup/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579035442313" />
     <state x="2120" y="925" width="537" height="579" key="git4idea.branch.GitSmartOperationDialog" timestamp="1578861456902">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="2120" y="925" width="537" height="579" key="git4idea.branch.GitSmartOperationDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1578861456902" />
-    <state x="2027" y="1005" width="723" height="420" key="git4idea.merge.GitPullDialog" timestamp="1576535622752">
+    <state x="2027" y="1005" width="723" height="427" key="git4idea.merge.GitPullDialog" timestamp="1579035126418">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="2027" y="1005" width="723" height="420" key="git4idea.merge.GitPullDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1576535622752" />
+    <state x="2027" y="1005" width="723" height="427" key="git4idea.merge.GitPullDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579035126418" />
     <state x="2057" y="581" key="run.anything.popup" timestamp="1578600397366">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>

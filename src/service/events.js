@@ -73,10 +73,11 @@ export const sendDeleteEvent = (openHouseID) => {
 export const getNewEvent = () => ({
     name: '',
     description: '',
-    department: '',
+    area: '',
     building: '',
     openHouse: '',
     time: '00:00',
+    room: '',
 });
 
 validate.validators.time = (value, { is24Hour, is12Hour, message }) => {
@@ -89,7 +90,7 @@ validate.validators.time = (value, { is24Hour, is12Hour, message }) => {
     return undefined;
 };
 
-export const validateEventCSV = (events, buildingNames, departmentNames, openHouseNames) => {
+export const validateEventCSV = (events, buildingNames, areaNames, openHouseNames) => {
     const eventConstraints = {
         name: {
             presence: true,
@@ -111,11 +112,11 @@ export const validateEventCSV = (events, buildingNames, departmentNames, openHou
                 message: '^%{value} is not a valid time',
             },
         },
-        department: {
+        area: {
             presence: true,
             inclusion: {
-                within: departmentNames,
-                message: '^%{value} is not a valid department',
+                within: areaNames,
+                message: '^%{value} is not a valid area',
             },
         },
         building: {
@@ -124,6 +125,9 @@ export const validateEventCSV = (events, buildingNames, departmentNames, openHou
                 within: buildingNames,
                 message: '^%{value} is not a valid building',
             },
+        },
+        room: {
+            presence: true,
         },
         openHouse: {
             presence: true,
@@ -137,18 +141,19 @@ export const validateEventCSV = (events, buildingNames, departmentNames, openHou
     return events.map(event => validate(event, eventConstraints));
 };
 
-export const csvImportToEvents = (events, locations, departments, openHouses) => {
+export const csvImportToEvents = (events, locations, areas, openHouses) => {
     const locationNameMap = createNameMap(locations);
-    const departmentNameMap = createNameMap(departments);
+    const areaNameMap = createNameMap(areas);
     const openHouseNameMap = createNameMap(openHouses);
 
     return events.map(({
-        name, description, department, building, openHouse, time,
+        name, description, area, building, openHouse, time, room,
     }) => ({
         name,
         description,
+        room,
         time: moment(time, ['H:m', 'h:m A'], true).format('HH:mm'),
-        department: departmentNameMap[department],
+        area: areaNameMap[area],
         building: locationNameMap[building],
         openHouse: openHouseNameMap[openHouse],
     }));

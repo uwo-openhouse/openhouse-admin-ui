@@ -1,16 +1,16 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getDepartment } from '../../reducers';
+import { getArea } from '../../reducers';
 import DeleteForm from '../../components/EditList/DeleteForm';
-import { deleteDepartment } from '../../actions/departments';
+import { deleteArea } from '../../actions/areas';
 
 
 const mapStateToProps = (state, { id }) => ({
-    name: getDepartment(state, id).name,
+    name: getArea(state, id).name,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    onDelete: deleteDepartment,
+    onDelete: deleteArea,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeleteForm);

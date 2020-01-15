@@ -2,14 +2,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createEvents } from '../../actions/events';
 import {
-    getAllDepartments, getAllLocations, getAllOpenHouses,
+    getAllAreas, getAllLocations, getAllOpenHouses,
 } from '../../reducers';
 import EventImportForm from '../../components/Events/EventImportForm';
 
 const mapStateToProps = state => ({
     openHouses: getAllOpenHouses(state),
     locations: getAllLocations(state),
-    departments: getAllDepartments(state),
+    areas: getAllAreas(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

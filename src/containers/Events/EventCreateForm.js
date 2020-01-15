@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import EventEditForm from '../../components/Events/EventEditForm';
 import { createEvents } from '../../actions/events';
 import {
-    getAllDepartments, getAllLocations, getAllOpenHouses,
+    getAllAreas, getAllLocations, getAllOpenHouses,
 } from '../../reducers';
 
 const mapStateToProps = state => ({
     openHouses: getAllOpenHouses(state),
     locations: getAllLocations(state),
-    departments: getAllDepartments(state),
+    areas: getAllAreas(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

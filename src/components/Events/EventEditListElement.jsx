@@ -5,7 +5,7 @@ import './EventEditListElement.scss';
 import moment from 'moment';
 
 const EventEditListElement = ({
-    name, description, departmentName, buildingName, openHouseName, time,
+    name, description, areaName, buildingName, openHouseName, time, room,
 }) => (
     <>
         <Card.Title>{name}</Card.Title>
@@ -16,10 +16,12 @@ const EventEditListElement = ({
                 {openHouseName}
             </Badge>
             <Badge variant="info">
-                {departmentName}
+                {areaName}
             </Badge>
             <Badge variant="info">
                 {buildingName}
+                {' '}
+                {room}
             </Badge>
         </Card.Text>
 
@@ -29,10 +31,11 @@ const EventEditListElement = ({
 EventEditListElement.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    departmentName: PropTypes.string.isRequired,
+    areaName: PropTypes.string.isRequired,
     buildingName: PropTypes.string.isRequired,
     openHouseName: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
+    room: PropTypes.string.isRequired,
 };
 
 export default EventEditListElement;

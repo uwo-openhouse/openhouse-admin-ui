@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
-    getAllDepartments, getAllLocations, getAllOpenHouses, getEvent,
+    getAllAreas, getAllLocations, getAllOpenHouses, getEvent,
 } from '../../reducers';
 import EventEditForm from '../../components/Events/EventEditForm';
 import { editEvent } from '../../actions/events';
@@ -11,7 +11,7 @@ const mapStateToProps = (state, { id }) => ({
     event: getEvent(state, id),
     openHouses: getAllOpenHouses(state),
     locations: getAllLocations(state),
-    departments: getAllDepartments(state),
+    areas: getAllAreas(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

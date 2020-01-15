@@ -10,25 +10,25 @@ const DEFAULT_STATE = {
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
-        case actionTypes.FETCH_DEPARTMENTS_STARTED:
+        case actionTypes.FETCH_AREAS_STARTED:
             return {
                 ...state,
                 loading: true,
             };
-        case actionTypes.FETCH_DEPARTMENTS_SUCCESS:
+        case actionTypes.FETCH_AREAS_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 loaded: true,
                 data: buildMap(action.payload),
             };
-        case actionTypes.FETCH_DEPARTMENTS_FAILURE:
+        case actionTypes.FETCH_AREAS_FAILURE:
             return {
                 ...state,
                 loading: false,
             };
-        case actionTypes.CREATE_DEPARTMENTS_SUCCESS:
-        case actionTypes.EDIT_DEPARTMENTS_SUCCESS:
+        case actionTypes.CREATE_AREAS_SUCCESS:
+        case actionTypes.EDIT_AREAS_SUCCESS:
             return {
                 ...state,
                 data: {
@@ -36,7 +36,7 @@ export default (state = DEFAULT_STATE, action) => {
                     [action.payload.id]: action.payload,
                 },
             };
-        case actionTypes.DELETE_DEPARTMENTS_SUCCESS:
+        case actionTypes.DELETE_AREAS_SUCCESS:
             return {
                 ...state,
                 data: Object.keys(state.data)
@@ -56,7 +56,7 @@ export const isLoaded = (state) => {
     return state.loaded;
 };
 
-export const getAllDepartments = (state) => {
+export const getAllAreas = (state) => {
     if (!state) {
         throw new Error('no store');
     }
@@ -67,7 +67,7 @@ export const getAllDepartments = (state) => {
     return Object.values(state.data);
 };
 
-export const getDepartment = (state, id) => {
+export const getArea = (state, id) => {
     if (!state) {
         throw new Error('no store');
     }

@@ -59,7 +59,7 @@ const OpenHouseEditList = ({ openHouses }) => {
 OpenHouseEditList.propTypes = {
     openHouses: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            uuid: PropTypes.string.isRequired,
             date: PropTypes.number.isRequired,
         }),
     ).isRequired,

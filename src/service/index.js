@@ -19,8 +19,8 @@ export const pullOutJson = response => response.json();
 export const buildMap = (responseJson) => {
     const map = {};
     responseJson.forEach((element) => {
-        const { id } = element;
-        map[id] = element;
+        const { uuid } = element;
+        map[uuid] = element;
     });
     return map;
 };
@@ -39,8 +39,8 @@ export const normalizeDate = date => moment
 
 export const createNameMap = (elements) => {
     const map = {};
-    elements.forEach(({ name, id }) => {
-        map[name] = id;
+    elements.forEach(({ name, uuid }) => {
+        map[name] = uuid;
     });
     return map;
 };

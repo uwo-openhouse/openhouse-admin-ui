@@ -83,15 +83,15 @@ EventImportForm.propTypes = {
     onClose: PropTypes.func.isRequired,
     onSave: PropTypes.func.isRequired,
     locations: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
     areas: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
     openHouses: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
 };

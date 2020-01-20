@@ -44,3 +44,10 @@ export const createNameMap = (elements) => {
     });
     return map;
 };
+
+export const filterUUID = element => Object.keys(element)
+    .filter(key => key !== 'uuid')
+    .reduce((newElement, key) => ({
+        ...newElement,
+        [key]: element[key],
+    }), {});

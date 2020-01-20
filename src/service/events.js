@@ -1,7 +1,7 @@
 import validate from 'validate.js';
 import moment from 'moment';
 import {
-    createNameMap,
+    createNameMap, filterUUID,
     getBackEndURL, handleRequestError, pullOutJson,
 } from './index';
 
@@ -28,11 +28,11 @@ export const sendEditEvent = (event) => {
     });
 
     return fetch(
-        `${getBackEndURL()}/events`,
+        `${getBackEndURL()}/events/${event.uuid}`,
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(event),
+            body: JSON.stringify(filterUUID(event)),
         },
     )
         .then(handleRequestError);

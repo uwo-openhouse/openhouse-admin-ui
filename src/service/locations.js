@@ -1,4 +1,6 @@
-import { getBackEndURL, handleRequestError, pullOutJson } from './index';
+import {
+    filterUUID, getBackEndURL, handleRequestError, pullOutJson,
+} from './index';
 
 // eslint-disable-next-line import/prefer-default-export
 export const fetchLocations = () => {
@@ -23,11 +25,11 @@ export const sendEditLocation = (location) => {
     });
 
     return fetch(
-        `${getBackEndURL()}/buildings`,
+        `${getBackEndURL()}/buildings/${location.uuid}`,
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(location),
+            body: JSON.stringify(filterUUID(location)),
         },
     )
         .then(handleRequestError);

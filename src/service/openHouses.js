@@ -1,5 +1,6 @@
 import moment from 'moment';
 import {
+    filterUUID,
     getBackEndURL, handleRequestError, normalizeDate, pullOutJson,
 } from './index';
 
@@ -20,23 +21,23 @@ export const fetchOpenHouses = () => {
         .then(pullOutJson);
 };
 
-export const sendEditOpenHouse = (openhouse) => {
+export const sendEditOpenHouse = (openHouse) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/openhouses`,
+        `${getBackEndURL()}/openhouses/${openHouse.uuid}`,
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(openhouse),
+            body: JSON.stringify(filterUUID(openHouse)),
         },
     )
         .then(handleRequestError);
 };
 
-export const sendNewOpenHouse = (openhouse) => {
+export const sendNewOpenHouse = (openHouse) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
@@ -46,7 +47,7 @@ export const sendNewOpenHouse = (openhouse) => {
         {
             method: 'POST',
             headers,
-            body: JSON.stringify(openhouse),
+            body: JSON.stringify(openHouse),
         },
     )
         .then(handleRequestError)

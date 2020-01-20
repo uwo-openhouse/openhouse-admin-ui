@@ -1,9 +1,9 @@
-name: Build
+name: Deploy
 
 on: [push, pull_request]
 
 jobs:
-    deploy-prod:
+    deploy:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v1
@@ -18,7 +18,7 @@ jobs:
                   REACT_APP_BACKEND_URL: https://f5dfwrf3a8.execute-api.us-east-2.amazonaws.com/Prod/
                   REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
             - name: Configure AWS Credentials
-            - uses: aws-actions/configure-aws-credentials@v1
+              uses: aws-actions/configure-aws-credentials@v1
               with:
                   aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

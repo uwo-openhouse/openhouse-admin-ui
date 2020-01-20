@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="fixed build workflow">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/deploy_prod.yml" afterDir="false" />
+    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="added deploy workflow">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -264,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579556591846</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added deploy workflow">
+      <created>1579564155387</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1579564155387</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +305,8 @@
     <MESSAGE value="integrated with the backend and added csv template" />
     <MESSAGE value="removed google api key" />
     <MESSAGE value="added build workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="added build workflow" />
+    <MESSAGE value="added deploy workflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="added deploy workflow" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2061" y="1016" width="722" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579562387995">
@@ -309,10 +317,10 @@
     <state x="2076" y="939" width="624" height="551" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
     <state x="2126" y="960" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579562378927" />
     <state x="2126" y="960" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
-    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2" timestamp="1579564082477">
+    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2" timestamp="1579564361214">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579564082477" />
+    <state x="1958" y="808" width="860" height="814" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579564361214" />
     <state x="2176" y="969" width="424" height="491" key="FileChooserDialogImpl" timestamp="1579562378927" />
     <state x="2176" y="969" width="424" height="491" key="FileChooserDialogImpl/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
     <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1579562378927" />
@@ -327,8 +335,10 @@
     <state x="2150" y="924" width="476" height="581" key="RollbackChangesDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1579562378927" />
     <state width="498" height="446" key="SwitcherDM/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579562378927" />
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579564162387">
+      <screen x="1080" y="478" width="2560" height="1440" />
+    </state>
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579564162387" />
     <state x="2050" y="829" width="676" height="771" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579562378927" />
     <state x="2050" y="829" width="676" height="771" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
     <state x="2161" y="1131" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579562378927" />

@@ -15,7 +15,9 @@ ThemedStyleSheet.registerTheme(DefaultTheme);
 
 const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
     const [name, setName] = useState(openHouse.name);
+    const [info, setInfo] = useState(openHouse.info);
     const [date, setDate] = useState(openHouse.date);
+    const [visible, setVisible] = useState(openHouse.visible);
     const [datePickerFocused, setDatePickerFocused] = useState(false);
 
     return (
@@ -23,6 +25,17 @@ const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
             <Form.Group>
                 <Form.Label>Name</Form.Label>
                 <Form.Control placeholder="name" defaultValue={name} onChange={event => setName(event.target.value)} />
+            </Form.Group>
+
+            <Form.Group>
+                <Form.Label>Info</Form.Label>
+                <Form.Control
+                    as="textarea"
+                    rows="3"
+                    placeholder="info"
+                    defaultValue={info}
+                    onChange={event => setInfo(event.target.value)}
+                />
             </Form.Group>
 
             <Form.Group>
@@ -35,10 +48,17 @@ const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
                     id="date-picker"
                 />
             </Form.Group>
+
+            <Form.Group>
+                <Form.Check type="checkbox" checked={visible} onChange={event => setVisible(event.target.checked)} label="Is Visible" />
+            </Form.Group>
+
             <Button
                 variant="primary"
                 onClick={() => {
-                    onSave({ ...openHouse, name, date }).then(() => onClose());
+                    onSave({
+                        ...openHouse, name, date, info, visible,
+                    }).then(() => onClose());
                 }}
             >
                 Submit
@@ -51,6 +71,8 @@ const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
 OpenHouseEditForm.propTypes = {
     openHouse: PropTypes.shape({
         name: PropTypes.string.isRequired,
+        info: PropTypes.string.isRequired,
+        visible: PropTypes.bool.isRequired,
         date: PropTypes.number.isRequired,
     }).isRequired,
     onSave: PropTypes.func.isRequired,

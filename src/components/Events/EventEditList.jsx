@@ -58,7 +58,7 @@ const EventEditList = ({ events, openHouses, areas }) => {
                             >
                                 <option value="">All</option>
                                 {openHouses.map(openHouse => (
-                                    <option key={openHouse.id} value={openHouse.id}>{openHouse.name}</option>
+                                    <option key={openHouse.uuid} value={openHouse.uuid}>{openHouse.name}</option>
                                 ))}
                             </Form.Control>
                         </Col>
@@ -71,7 +71,7 @@ const EventEditList = ({ events, openHouses, areas }) => {
                             >
                                 <option value="">All</option>
                                 {areas.map(area => (
-                                    <option key={area.id} value={area.id}>{area.name}</option>
+                                    <option key={area.uuid} value={area.uuid}>{area.name}</option>
                                 ))}
                             </Form.Control>
                         </Col>
@@ -128,7 +128,7 @@ const EventEditList = ({ events, openHouses, areas }) => {
 EventEditList.propTypes = {
     events: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            uuid: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
             area: PropTypes.string.isRequired,
@@ -140,13 +140,13 @@ EventEditList.propTypes = {
     ).isRequired,
     openHouses: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            uuid: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
         }),
     ).isRequired,
     areas: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            uuid: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
         }),
     ).isRequired,

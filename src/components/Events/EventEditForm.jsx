@@ -4,8 +4,8 @@ import * as PropTypes from 'prop-types';
 import TimePicker from 'react-time-picker';
 import './EventEditForm.scss';
 
-const createOptions = options => options.map(({ id, name }) => (
-    <option key={id} value={id}>
+const createOptions = options => options.map(({ uuid, name }) => (
+    <option key={uuid} value={uuid}>
         {name}
     </option>
 ));
@@ -108,15 +108,15 @@ EventEditForm.propTypes = {
         room: PropTypes.string.isRequired,
     }).isRequired,
     areas: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
     locations: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
     openHouses: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
 };

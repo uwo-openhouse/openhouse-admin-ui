@@ -25,13 +25,14 @@ Please enter
                     {' '}
 to confirm
                 </Form.Label>
-                <Form.Control placeholder="name" onChange={event => setEnteredName(event.target.value)} />
+                <Form.Control placeholder="name" defaultValue={enteredName} onChange={event => setEnteredName(event.target.value)} />
             </Form.Group>
             <Button
                 variant="danger"
                 disabled={enteredName !== name}
                 onClick={() => {
-                    onDelete(id).then(() => onClose());
+                    onDelete(id);
+                    onClose();
                 }}
             >
 Delete

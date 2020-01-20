@@ -14,8 +14,8 @@ const EditList = ({
         <Button className="new-button" variant="primary" onClick={onNew}><FontAwesomeIcon icon={faPlus} /></Button>
         {elements.map(element => (
             <EditListElement
-                key={element.id}
-                id={element.id}
+                key={element.uuid}
+                id={element.uuid}
                 deleteVisible={deleteVisible}
                 editVisible={editVisible}
                 onEdit={onEdit}
@@ -31,7 +31,7 @@ EditList.propTypes = {
     ElementComponentType: PropTypes.elementType.isRequired,
     elements: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            uuid: PropTypes.string.isRequired,
         }),
     ).isRequired,
     deleteVisible: PropTypes.bool.isRequired,

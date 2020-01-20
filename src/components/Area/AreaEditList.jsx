@@ -59,7 +59,7 @@ const AreaEditList = ({ areas }) => {
 AreaEditList.propTypes = {
     areas: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            uuid: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
             color: PropTypes.string.isRequired,
         }),

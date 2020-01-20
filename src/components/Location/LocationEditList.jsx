@@ -59,7 +59,7 @@ const LocationEditList = ({ locations }) => {
 LocationEditList.propTypes = {
     locations: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            uuid: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
         }),
     ).isRequired,

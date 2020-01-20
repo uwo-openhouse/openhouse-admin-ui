@@ -69,6 +69,7 @@ const EventImportForm = ({
     }
     return (
         <Form>
+            <a className="template-download" href="/events-example.csv" download>CSV Template</a>
             <CSVReader
                 cssClass="csv-input"
                 label="Select CSV event data"
@@ -83,15 +84,15 @@ EventImportForm.propTypes = {
     onClose: PropTypes.func.isRequired,
     onSave: PropTypes.func.isRequired,
     locations: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
     areas: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
     openHouses: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
 };

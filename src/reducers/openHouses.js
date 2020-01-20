@@ -32,7 +32,7 @@ export default (state = DEFAULT_STATE, action) => {
                 ...state,
                 data: {
                     ...state.data,
-                    [action.payload.id]: action.payload,
+                    [action.payload.uuid]: action.payload,
                 },
             };
         case actionTypes.DELETE_OPEN_HOUSES_SUCCESS:

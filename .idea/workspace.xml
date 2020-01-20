@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="fixed build workflow">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +171,7 @@
       <workItem from="1579395434574" duration="1962000" />
       <workItem from="1579454025240" duration="2160000" />
       <workItem from="1579457924901" duration="1540000" />
-      <workItem from="1579552475638" duration="3348000" />
+      <workItem from="1579552475638" duration="3632000" />
     </task>
     <task id="LOCAL-00001" summary="added building editing">
       <created>1576437892899</created>
@@ -258,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579553830731</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added build workflow">
+      <created>1579556591846</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1579556591846</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +297,8 @@
     <MESSAGE value="fixed uuids and put requests" />
     <MESSAGE value="integrated with the backend and added csv template" />
     <MESSAGE value="removed google api key" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed google api key" />
+    <MESSAGE value="added build workflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="added build workflow" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2061" y="1016" width="722" height="404" key="#com.intellij.fileTypes.FileTypeChooser" />

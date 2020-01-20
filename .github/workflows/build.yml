@@ -3,7 +3,7 @@ name: Build
 on: [push, pull_request]
 
 jobs:
-    eslint:
+    build:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v1
@@ -12,5 +12,5 @@ jobs:
                   node-version: '10.x'
             - name: Install Dependencies
               run: yarn install
-            - name: Lint
+            - name: Build
               run: yarn run build

@@ -69,6 +69,7 @@ const EventImportForm = ({
     }
     return (
         <Form>
+            <a className="template-download" href="/events-example.csv" download>CSV Template</a>
             <CSVReader
                 cssClass="csv-input"
                 label="Select CSV event data"

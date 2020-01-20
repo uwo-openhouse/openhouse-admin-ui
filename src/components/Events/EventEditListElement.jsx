@@ -9,7 +9,7 @@ const EventEditListElement = ({
 }) => (
     <>
         <Card.Title>{name}</Card.Title>
-        <Card.Subtitle>{moment(time, 'H:m').format('h:m A')}</Card.Subtitle>
+        <Card.Subtitle>{moment(time, 'H:m').format('h:mm A')}</Card.Subtitle>
         <Card.Text>
             {description}
             <Badge variant="primary">

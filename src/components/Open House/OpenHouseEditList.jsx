@@ -60,6 +60,9 @@ OpenHouseEditList.propTypes = {
     openHouses: PropTypes.arrayOf(
         PropTypes.shape({
             uuid: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            info: PropTypes.string.isRequired,
+            visible: PropTypes.bool.isRequired,
             date: PropTypes.number.isRequired,
         }),
     ).isRequired,

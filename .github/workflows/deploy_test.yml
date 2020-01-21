@@ -18,7 +18,7 @@ jobs:
             - name: Build
               run: yarn run build
               env:
-                  REACT_APP_BACKEND_URL: https://f5dfwrf3a8.execute-api.us-east-2.amazonaws.com/Prod/
+                  REACT_APP_BACKEND_URL: https://giygzbc7c2.execute-api.us-east-2.amazonaws.com/Prod
                   REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v1

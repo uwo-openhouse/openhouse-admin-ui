@@ -76,7 +76,8 @@ export const getNewEvent = () => ({
     area: '',
     building: '',
     openHouse: '',
-    time: '00:00',
+    startTime: '00:00',
+    endTime: '01:00',
     room: '',
 });
 
@@ -90,8 +91,18 @@ validate.validators.time = (value, { is24Hour, is12Hour, message }) => {
     return undefined;
 };
 
+validate.validators.isBefore = (value, { otherTime, message }) => {
+    const time1 = moment(value, ['H:m', 'h:m A'], true);
+    const time2 = moment(otherTime, ['H:m', 'h:m A'], true);
+
+    if (!time1.isBefore(time2)) {
+        return message;
+    }
+    return undefined;
+};
+
 export const validateEventCSV = (events, buildingNames, areaNames, openHouseNames) => {
-    const eventConstraints = {
+    const eventConstraints = event => ({
         name: {
             presence: true,
             length: {
@@ -104,12 +115,24 @@ export const validateEventCSV = (events, buildingNames, areaNames, openHouseName
                 minimum: 1,
             },
         },
-        time: {
+        endTime: {
             presence: true,
             time: {
                 is24Hour: true,
                 is12Hour: true,
                 message: '^%{value} is not a valid time',
+            },
+        },
+        startTime: {
+            presence: true,
+            time: {
+                is24Hour: true,
+                is12Hour: true,
+                message: '^%{value} is not a valid time',
+            },
+            isBefore: {
+                otherTime: event.endTime,
+                message: `^Start time %{value} is not before end time (${event.endTime})`,
             },
         },
         area: {
@@ -136,10 +159,12 @@ export const validateEventCSV = (events, buildingNames, areaNames, openHouseName
                 message: '^%{value} is not a valid open house',
             },
         },
-    };
+    });
 
-    return events.map(event => validate(event, eventConstraints));
+    return events.map(event => validate(event, eventConstraints(event)));
 };
+
+const formatTime = time => moment(time, ['H:m', 'h:m A'], true).format('HH:mm');
 
 export const csvImportToEvents = (events, locations, areas, openHouses) => {
     const locationNameMap = createNameMap(locations);
@@ -147,12 +172,13 @@ export const csvImportToEvents = (events, locations, areas, openHouses) => {
     const openHouseNameMap = createNameMap(openHouses);
 
     return events.map(({
-        name, description, area, building, openHouse, time, room,
+        name, description, area, building, openHouse, startTime, endTime, room,
     }) => ({
         name,
         description,
         room,
-        time: moment(time, ['H:m', 'h:m A'], true).format('HH:mm'),
+        startTime: formatTime(startTime),
+        endTime: formatTime(endTime),
         area: areaNameMap[area],
         building: locationNameMap[building],
         openHouse: openHouseNameMap[openHouse],

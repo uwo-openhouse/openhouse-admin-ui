@@ -18,7 +18,8 @@ const EventEditForm = ({
     const [area, setArea] = useState(event.area);
     const [building, setBuilding] = useState(event.building);
     const [openHouse, setOpenHouse] = useState(event.openHouse);
-    const [time, setTime] = useState(event.time);
+    const [startTime, setStartTime] = useState(event.startTime);
+    const [endTime, setEndTime] = useState(event.endTime);
     const [room, setRoom] = useState(event.room);
 
     return (
@@ -38,8 +39,12 @@ const EventEditForm = ({
                 />
             </Form.Group>
             <Form.Group>
-                <Form.Label>Time</Form.Label>
-                <TimePicker onChange={setTime} value={time} maxDetail="minute" />
+                <Form.Label>Start Time</Form.Label>
+                <TimePicker onChange={setStartTime} value={startTime} maxDetail="minute" />
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>End Time</Form.Label>
+                <TimePicker minTime={startTime} onChange={setEndTime} value={endTime} maxDetail="minute" />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Area</Form.Label>
@@ -85,7 +90,7 @@ const EventEditForm = ({
                 variant="primary"
                 onClick={() => {
                     onSave({
-                        ...event, name, description, area, building, openHouse, time, room,
+                        ...event, name, description, area, building, openHouse, startTime, endTime, room,
                     }).then(() => onClose());
                 }}
             >
@@ -104,7 +109,8 @@ EventEditForm.propTypes = {
         area: PropTypes.string.isRequired,
         building: PropTypes.string.isRequired,
         openHouse: PropTypes.string.isRequired,
-        time: PropTypes.string.isRequired,
+        startTime: PropTypes.string.isRequired,
+        endTime: PropTypes.string.isRequired,
         room: PropTypes.string.isRequired,
     }).isRequired,
     areas: PropTypes.arrayOf(PropTypes.shape({

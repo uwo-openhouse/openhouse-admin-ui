@@ -1,5 +1,5 @@
-Name,Description,Area,Building,Open House,Time,Room
-Example 1,test,Faculty of Science,Middlesex College,2020 November Open House,21:00,122
-Example 2,test,Faculty of Science,Middlesex College,2022 November Open House,5:00 PM,212
-Example 3,test,Faculty of Engineering,Physics and Astronomy,2020 November Open House,21:00,121
-Example 4,test,Faculty of Engineering,Middlesex College,2022 November Open House,7:00 AM,121
+Name,Description,Area,Building,Open House,Start Time,End Time,Room
+Example 1,test,Faculty of Science,Middlesex College,2020 November Open House,09:00,11:00,122
+Example 2,test,Faculty of Science,Middlesex College,2022 November Open House,5:00 PM,7:00 PM,212
+Example 3,test,Faculty of Engineering,Physics and Astronomy,2020 November Open House,21:00,22:00,121
+Example 4,test,Faculty of Engineering,Middlesex College,2022 November Open House,7:00 AM,12:00 PM,121

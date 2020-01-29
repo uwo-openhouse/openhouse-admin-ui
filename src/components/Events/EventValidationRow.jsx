@@ -17,7 +17,12 @@ const EventValidationRow = ({ id, event, validation }) => {
                         placement="top"
                         overlay={(
                             <Tooltip id={`error-tooltip-${attribute}-${id}`}>
-                                {validation[attribute]}
+                                {validation[attribute].map(validationError => (
+                                    <>
+                                        {validationError}
+                                        <br />
+                                    </>
+                                ))}
                             </Tooltip>
                         )}
                     >
@@ -32,7 +37,8 @@ const EventValidationRow = ({ id, event, validation }) => {
         <tr className={`event-validation-row ${isInvalid && 'table-danger'}`}>
             {createCell('name')}
             {createCell('description')}
-            {createCell('time')}
+            {createCell('startTime')}
+            {createCell('endTime')}
             {createCell('area')}
             {createCell('building')}
             {createCell('room')}

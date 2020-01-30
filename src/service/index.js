@@ -45,8 +45,8 @@ export const createNameMap = (elements) => {
     return map;
 };
 
-export const filterUUID = element => Object.keys(element)
-    .filter(key => key !== 'uuid')
+export const filterAttributes = (element, keys) => Object.keys(element)
+    .filter(key => !keys.includes(key))
     .reduce((newElement, key) => ({
         ...newElement,
         [key]: element[key],

@@ -1,8 +1,7 @@
 import validate from 'validate.js';
 import moment from 'moment';
 import {
-    createNameMap, filterUUID,
-    getBackEndURL, handleRequestError, pullOutJson,
+    createNameMap, filterAttributes, getBackEndURL, handleRequestError, pullOutJson,
 } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -32,7 +31,7 @@ export const sendEditEvent = (event) => {
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(filterUUID(event)),
+            body: JSON.stringify(filterAttributes(event, ['uuid', 'attendees'])),
         },
     )
         .then(handleRequestError);

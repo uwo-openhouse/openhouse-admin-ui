@@ -1,6 +1,6 @@
 import moment from 'moment';
 import {
-    filterUUID,
+    filterAttributes,
     getBackEndURL, handleRequestError, normalizeDate, pullOutJson,
 } from './index';
 
@@ -31,7 +31,7 @@ export const sendEditOpenHouse = (openHouse) => {
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(filterUUID(openHouse)),
+            body: JSON.stringify(filterAttributes(openHouse, ['uuid'])),
         },
     )
         .then(handleRequestError);

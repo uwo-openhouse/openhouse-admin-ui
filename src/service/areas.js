@@ -1,5 +1,5 @@
 import {
-    filterUUID, getBackEndURL, handleRequestError, pullOutJson,
+    filterAttributes, getBackEndURL, handleRequestError, pullOutJson,
 } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -29,7 +29,7 @@ export const sendEditArea = (area) => {
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(filterUUID(area)),
+            body: JSON.stringify(filterAttributes(area, ['uuid'])),
         },
     )
         .then(handleRequestError);

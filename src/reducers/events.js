@@ -31,7 +31,7 @@ export default (state = DEFAULT_STATE, action) => {
                 ...state,
                 data: {
                     ...state.data,
-                    ...buildMap(action.payload.map(event => ({ ...event, attendees: 0 }))),
+                    ...buildMap(action.payload),
                 },
             };
         case actionTypes.EDIT_EVENTS_SUCCESS:

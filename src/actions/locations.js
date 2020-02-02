@@ -46,7 +46,7 @@ export const editLocation = location => (dispatch) => {
         })
         .catch((error) => {
             dispatch({
-                type: actionTypes.FETCH_BUILDINGS_FAILURE,
+                type: actionTypes.EDIT_BUILDINGS_FAILURE,
                 payload: error,
             });
         })

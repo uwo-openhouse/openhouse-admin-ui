@@ -1,5 +1,5 @@
 import {
-    filterAttributes, getBackEndURL, handleRequestError, pullOutJson,
+    filterAttributes, getBackEndURL, handleRequestError, pullOutJson, validate,
 } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -74,3 +74,20 @@ export const getNewArea = () => ({
     name: '',
     color: getDefaultColor(),
 });
+
+export const validateArea = (area) => {
+    const areaConstraints = ({
+        name: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        color: {
+            presence: true,
+            format: /#[\dabcdefABCDEF]{6}/,
+        },
+    });
+
+    return validate(area, areaConstraints);
+};

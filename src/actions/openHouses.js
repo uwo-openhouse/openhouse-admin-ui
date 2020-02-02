@@ -46,7 +46,7 @@ export const editOpenHouse = openHouse => (dispatch) => {
         })
         .catch((error) => {
             dispatch({
-                type: actionTypes.FETCH_OPEN_HOUSES_FAILURE,
+                type: actionTypes.EDIT_OPEN_HOUSES_FAILURE,
                 payload: error,
             });
         })

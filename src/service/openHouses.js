@@ -1,4 +1,5 @@
 import moment from 'moment';
+import validate from 'validate.js';
 import {
     filterAttributes,
     getBackEndURL, handleRequestError, normalizeDate, pullOutJson,
@@ -75,3 +76,32 @@ export const getNewOpenHouse = () => ({
     visible: false,
     date: normalizeDate(moment().unix()),
 });
+
+export const validateOpenHouse = (openHouse) => {
+    const openHouseConstraints = ({
+        name: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        info: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        date: {
+            presence: true,
+            isSameOrAfter: {
+                otherTime: normalizeDate(moment().unix()),
+                message: '^date is not in the future',
+            },
+        },
+        visible: {
+            presence: true,
+        },
+    });
+
+    return validate(openHouse, openHouseConstraints);
+};

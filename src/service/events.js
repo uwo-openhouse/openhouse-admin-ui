@@ -1,7 +1,6 @@
-import validate from 'validate.js';
 import moment from 'moment';
 import {
-    createNameMap, filterAttributes, getBackEndURL, handleRequestError, pullOutJson,
+    createNameMap, filterAttributes, getBackEndURL, getIDs, handleRequestError, pullOutJson, validate,
 } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -80,24 +79,67 @@ export const getNewEvent = () => ({
     room: '',
 });
 
-validate.validators.time = (value, { is24Hour, is12Hour, message }) => {
-    const isValid24Hour = moment(value, 'H:m', true).isValid();
-    const isValid12Hour = moment(value, 'h:m A', true).isValid();
+export const validateEvent = (event, buildings, areas, openHouses) => {
+    const eventConstraints = ({
+        name: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        description: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        endTime: {
+            presence: true,
+            time: {
+                is24Hour: true,
+                is12Hour: true,
+                message: '^%{value} is not a valid time',
+            },
+        },
+        startTime: {
+            presence: true,
+            time: {
+                is24Hour: true,
+                is12Hour: true,
+                message: '^%{value} is not a valid time',
+            },
+            isBefore: {
+                otherTime: event.endTime,
+                message: `^Start time %{value} is not before end time (${event.endTime})`,
+            },
+        },
+        area: {
+            presence: true,
+            inclusion: {
+                within: getIDs(areas),
+                message: '^Not a valid area',
+            },
+        },
+        building: {
+            presence: true,
+            inclusion: {
+                within: getIDs(buildings),
+                message: '^Not a valid building',
+            },
+        },
+        room: {
+            presence: true,
+        },
+        openHouse: {
+            presence: true,
+            inclusion: {
+                within: getIDs(openHouses),
+                message: '^Not a valid open house',
+            },
+        },
+    });
 
-    if (!((is12Hour && isValid12Hour) || (is24Hour && isValid24Hour))) {
-        return message;
-    }
-    return undefined;
-};
-
-validate.validators.isBefore = (value, { otherTime, message }) => {
-    const time1 = moment(value, ['H:m', 'h:m A'], true);
-    const time2 = moment(otherTime, ['H:m', 'h:m A'], true);
-
-    if (!time1.isBefore(time2)) {
-        return message;
-    }
-    return undefined;
+    return validate(event, eventConstraints);
 };
 
 export const validateEventCSV = (events, buildingNames, areaNames, openHouseNames) => {

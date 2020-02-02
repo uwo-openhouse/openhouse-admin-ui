@@ -4,6 +4,7 @@ import * as PropTypes from 'prop-types';
 import CSVReader from 'react-csv-reader';
 import camelcase from 'camelcase';
 import { csvImportToEvents, validateEventCSV } from '../../service/events';
+import { isValid } from '../../service';
 import EventValidationRow from './EventValidationRow';
 import './EventImportForm.scss';
 
@@ -42,14 +43,14 @@ const EventImportForm = ({
                     </thead>
                     <tbody>
                         {events.map((event, i) => (
-                        // eslint-disable-next-line react/no-array-index-key
+                            // eslint-disable-next-line react/no-array-index-key
                             <EventValidationRow key={i} id={i} event={event} validation={validation[i]} />
                         ))}
                     </tbody>
                 </Table>
                 <Button
                     className="submit-button"
-                    disabled={validation.some(validationError => (validationError !== undefined))}
+                    disabled={validation.some(validationError => (!isValid(validationError)))}
                     variant="primary"
                     onClick={() => {
                         onSave(csvImportToEvents(events, locations, areas, openHouses)).then(() => onClose());

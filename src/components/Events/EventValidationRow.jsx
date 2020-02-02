@@ -17,11 +17,12 @@ const EventValidationRow = ({ id, event, validation }) => {
                         placement="top"
                         overlay={(
                             <Tooltip id={`error-tooltip-${attribute}-${id}`}>
-                                {validation[attribute].map(validationError => (
-                                    <>
+                                {validation[attribute].map((validationError, index) => (
+                                    // eslint-disable-next-line react/no-array-index-key
+                                    <React.Fragment key={index}>
                                         {validationError}
                                         <br />
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </Tooltip>
                         )}

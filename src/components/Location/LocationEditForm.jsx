@@ -2,17 +2,22 @@ import React, { useState } from 'react';
 import LocationPicker from 'react-location-picker';
 import * as PropTypes from 'prop-types';
 import { Button, Form } from 'react-bootstrap';
+import FormValidationError from '../Form/FormValidationError';
+import { validateLocation } from '../../service/locations';
+import { isValid } from '../../service';
 
 const LocationEditForm = ({ onClose, onSave, location }) => {
     const [name, setName] = useState(location.name);
     const [position, setPosition] = useState(location.position);
     const [address, setAddress] = useState(' ');
+    const [validationErrors, setValidationErrors] = useState(undefined);
 
     return (
         <Form>
             <Form.Group>
                 <Form.Label>Name</Form.Label>
                 <Form.Control placeholder="name" defaultValue={name} onChange={event => setName(event.target.value)} />
+                <FormValidationError attribute="name" validation={validationErrors} />
             </Form.Group>
 
             <Form.Group>
@@ -29,11 +34,19 @@ const LocationEditForm = ({ onClose, onSave, location }) => {
                     radius={-1}
                     zoom={15}
                 />
+                <FormValidationError attribute="position.lat" validation={validationErrors} />
+                <FormValidationError attribute="position.lng" validation={validationErrors} />
             </Form.Group>
             <Button
                 variant="primary"
                 onClick={() => {
-                    onSave({ ...location, name, position }).then(() => onClose());
+                    const newLocation = { ...location, name, position };
+                    const errors = validateLocation(location);
+                    if (isValid(errors)) {
+                        onSave(newLocation).then(() => onClose());
+                    } else {
+                        setValidationErrors(errors);
+                    }
                 }}
             >
                 Submit

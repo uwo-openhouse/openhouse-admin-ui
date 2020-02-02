@@ -1,5 +1,5 @@
 import {
-    filterAttributes, getBackEndURL, handleRequestError, pullOutJson,
+    filterAttributes, getBackEndURL, handleRequestError, pullOutJson, validate,
 } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -76,3 +76,34 @@ export const getNewLocation = () => ({
     name: '',
     position: getDefaultPosition(),
 });
+
+export const validateLocation = (location) => {
+    const locationConstraints = ({
+        name: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        'position.lat': {
+            presence: true,
+            numericality: {
+                greaterThanOrEqualTo: -90,
+                lessThanOrEqualTo: 90,
+                notGreaterThanOrEqualTo: 'must not be less than -90 degrees',
+                notLessThanOrEqualTo: 'must not be greater than 90 degrees',
+            },
+        },
+        'position.lng': {
+            presence: true,
+            numericality: {
+                greaterThanOrEqualTo: -180,
+                lessThanOrEqualTo: 180,
+                notGreaterThanOrEqualTo: 'must not be less than -180 degrees',
+                notLessThanOrEqualTo: 'must not be greater than 180 degrees',
+            },
+        },
+    });
+
+    return validate(location, locationConstraints);
+};

@@ -45,7 +45,7 @@ export const editArea = area => (dispatch) => {
         })
         .catch((error) => {
             dispatch({
-                type: actionTypes.FETCH_AREAS_FAILURE,
+                type: actionTypes.EDIT_AREAS_FAILURE,
                 payload: error,
             });
         })

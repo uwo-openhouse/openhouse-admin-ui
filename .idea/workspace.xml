@@ -2,30 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/actions/eateries.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Eateries/EateryEditForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Eateries/EateryEditList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Eateries/EateryEditListElement.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/FormOptionSelector.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/FormTimePicker.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Eateries/EateryCreateForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Eateries/EateryDeleteForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Eateries/EateryEditForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Eateries/EateryEditList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Eateries/EateryEditListElement.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reducers/eateries.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/eateries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/FormValidationError.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/FormValidationError.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actions/areas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/areas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/eateries.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/eateries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/locations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/locations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/openHouses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/openHouses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Area/AreaEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Area/AreaEditForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Eateries/EateryEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Eateries/EateryEditForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventEditForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTimePicker.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditListElement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventEditListElement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignedInLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignedInLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/EventImportForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventImportForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/EventValidationRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventValidationRow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Location/LocationEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Location/LocationEditForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/areas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/areas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/eateries.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/eateries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/locations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/locations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/openHouses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/openHouses.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -327,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580350470987</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added eatery support">
+      <created>1580675332240</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1580675332240</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +369,8 @@
     <MESSAGE value="deploys only on push" />
     <MESSAGE value="added end time support to events" />
     <MESSAGE value="added support for attendee count from the backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="added support for attendee count from the backend" />
+    <MESSAGE value="added eatery support" />
+    <option name="LAST_COMMIT_MESSAGE" value="added eatery support" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1988" y="873" width="800" height="691" key="#ESLint" timestamp="1580336074269">
@@ -387,40 +391,42 @@
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="2067" y="902" width="642" height="626" key="#npm_start/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580333006915" />
-    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2" timestamp="1580675314497">
+    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2" timestamp="1580683023007">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580675314497" />
+    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580683023007" />
     <state x="1247" y="605" width="2293" height="1213" key="DiffContextDialog" timestamp="1580351455014">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="1247" y="605" width="2293" height="1213" key="DiffContextDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580351455014" />
     <state x="2176" y="969" width="424" height="491" key="FileChooserDialogImpl" timestamp="1579562378927" />
     <state x="2176" y="969" width="424" height="491" key="FileChooserDialogImpl/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
-    <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1580675314549">
+    <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1580683023018">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.bottom/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580675314549" />
-    <state width="2470" height="385" key="GridCell.Tab.0.center" timestamp="1580675314549">
+    <state width="2470" height="385" key="GridCell.Tab.0.bottom/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580683023018" />
+    <state width="2470" height="385" key="GridCell.Tab.0.center" timestamp="1580683023018">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.center/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580675314549" />
-    <state width="2470" height="385" key="GridCell.Tab.0.left" timestamp="1580675314549">
+    <state width="2470" height="385" key="GridCell.Tab.0.center/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580683023018" />
+    <state width="2470" height="385" key="GridCell.Tab.0.left" timestamp="1580683023018">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.left/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580675314549" />
-    <state width="2470" height="385" key="GridCell.Tab.0.right" timestamp="1580675314549">
+    <state width="2470" height="385" key="GridCell.Tab.0.left/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580683023018" />
+    <state width="2470" height="385" key="GridCell.Tab.0.right" timestamp="1580683023018">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.right/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580675314549" />
-    <state x="2150" y="924" width="476" height="581" key="RollbackChangesDialog" timestamp="1579562378927" />
-    <state x="2150" y="924" width="476" height="581" key="RollbackChangesDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
+    <state width="2470" height="385" key="GridCell.Tab.0.right/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580683023018" />
+    <state x="2150" y="924" width="476" height="581" key="RollbackChangesDialog" timestamp="1580678264386">
+      <screen x="1080" y="478" width="2560" height="1440" />
+    </state>
+    <state x="2150" y="924" width="476" height="581" key="RollbackChangesDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580678264386" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1579562378927" />
     <state width="498" height="446" key="SwitcherDM/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1580350490797">
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1580675337474">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580350490797" />
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580675337474" />
     <state x="2050" y="829" width="676" height="771" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579562378927" />
     <state x="2050" y="829" width="676" height="771" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
     <state x="2161" y="1131" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579562378927" />

@@ -3,6 +3,9 @@ import * as PropTypes from 'prop-types';
 import { Button, Form } from 'react-bootstrap';
 import FormTimePicker from '../Form/FormTimePicker';
 import FormOptionSelector from '../Form/FormOptionSelector';
+import FormValidationError from '../Form/FormValidationError';
+import { validateEatery } from '../../service/eateries';
+import { isValid } from '../../service';
 
 
 const EateryEditForm = ({
@@ -12,30 +15,42 @@ const EateryEditForm = ({
     const [building, setBuilding] = useState(eatery.building);
     const [openTime, setOpenTime] = useState(eatery.openTime);
     const [closeTime, setCloseTime] = useState(eatery.closeTime);
+    const [validationErrors, setValidationErrors] = useState(undefined);
+
     return (
         <Form>
             <Form.Group>
                 <Form.Label>Name</Form.Label>
                 <Form.Control placeholder="name" defaultValue={name} onChange={changeEvent => setName(changeEvent.target.value)} />
+                <FormValidationError attribute="name" validation={validationErrors} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Open Time</Form.Label>
                 <FormTimePicker onChange={setOpenTime} value={openTime} maxDetail="minute" />
+                <FormValidationError attribute="openTime" validation={validationErrors} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Close Time</Form.Label>
                 <FormTimePicker minTime={openTime} onChange={setCloseTime} value={closeTime} maxDetail="minute" />
+                <FormValidationError attribute="closeTime" validation={validationErrors} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Building</Form.Label>
                 <FormOptionSelector placeHolder="Select Building" value={building} onChange={setBuilding} options={locations} />
+                <FormValidationError attribute="building" validation={validationErrors} />
             </Form.Group>
             <Button
                 variant="primary"
                 onClick={() => {
-                    onSave({
+                    const newEatery = {
                         ...eatery, name, building, openTime, closeTime,
-                    }).then(() => onClose());
+                    };
+                    const errors = validateEatery(newEatery, locations);
+                    if (isValid(errors)) {
+                        onSave(newEatery).then(() => onClose());
+                    } else {
+                        setValidationErrors(errors);
+                    }
                 }}
             >
                 Submit

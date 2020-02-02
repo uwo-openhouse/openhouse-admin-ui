@@ -43,7 +43,7 @@ export const editEatery = eatery => (dispatch) => {
         })
         .catch((error) => {
             dispatch({
-                type: actionTypes.FETCH_EATERIES_FAILURE,
+                type: actionTypes.EDIT_EATERIES_FAILURE,
                 payload: error,
             });
         })

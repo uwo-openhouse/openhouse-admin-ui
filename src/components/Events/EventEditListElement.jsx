@@ -2,9 +2,7 @@ import { Badge, Card } from 'react-bootstrap';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import './EventEditListElement.scss';
-import moment from 'moment';
-
-const displayTime = time => moment(time, 'H:m').format('h:mm A');
+import { displayTime } from '../../service';
 
 const EventEditListElement = ({
     name, description, areaName, buildingName, openHouseName, startTime, endTime, room,

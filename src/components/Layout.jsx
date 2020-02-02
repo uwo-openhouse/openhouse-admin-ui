@@ -6,6 +6,7 @@ import AreaEditList from '../containers/Area/AreaEditList';
 import ErrorList from '../containers/ErrorList/ErrorList';
 import OpenHouseEditList from '../containers/Open House/OpenHouseEditList';
 import EventEditList from '../containers/Events/EventEditList';
+import EateryEditList from '../containers/Eateries/EateryEditList';
 
 
 const Layout = () => (
@@ -35,6 +36,11 @@ const Layout = () => (
                 <Route path="/events" exact>
                     <SignedInLayout>
                         <EventEditList />
+                    </SignedInLayout>
+                </Route>
+                <Route path="/eateries" exact>
+                    <SignedInLayout>
+                        <EateryEditList />
                     </SignedInLayout>
                 </Route>
             </Switch>

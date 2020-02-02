@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import * as PropTypes from 'prop-types';
-import TimePicker from 'react-time-picker';
-import './EventEditForm.scss';
-
-const createOptions = options => options.map(({ uuid, name }) => (
-    <option key={uuid} value={uuid}>
-        {name}
-    </option>
-));
+import FormOptionSelector from '../Form/FormOptionSelector';
+import FormTimePicker from '../Form/FormTimePicker';
 
 const EventEditForm = ({
     onClose, onSave, event, openHouses, locations, areas,
@@ -40,35 +34,19 @@ const EventEditForm = ({
             </Form.Group>
             <Form.Group>
                 <Form.Label>Start Time</Form.Label>
-                <TimePicker onChange={setStartTime} value={startTime} maxDetail="minute" />
+                <FormTimePicker onChange={setStartTime} value={startTime} maxDetail="minute" />
             </Form.Group>
             <Form.Group>
                 <Form.Label>End Time</Form.Label>
-                <TimePicker minTime={startTime} onChange={setEndTime} value={endTime} maxDetail="minute" />
+                <FormTimePicker minTime={startTime} onChange={setEndTime} value={endTime} maxDetail="minute" />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Area</Form.Label>
-                <Form.Control
-                    defaultValue={area}
-                    placeholder="Select Area"
-                    as="select"
-                    onChange={(changeEvent => setArea(changeEvent.target.value))}
-                >
-                    <option disabled value="">Select Area</option>
-                    {createOptions(areas)}
-                </Form.Control>
+                <FormOptionSelector placeHolder="Select Area" value={area} onChange={setArea} options={areas} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Building</Form.Label>
-                <Form.Control
-                    defaultValue={building}
-                    placeholder="Select Building"
-                    as="select"
-                    onChange={(changeEvent => setBuilding(changeEvent.target.value))}
-                >
-                    <option disabled value="">Select Building</option>
-                    {createOptions(locations)}
-                </Form.Control>
+                <FormOptionSelector placeHolder="Select Building" value={building} onChange={setBuilding} options={locations} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Room</Form.Label>
@@ -76,15 +54,7 @@ const EventEditForm = ({
             </Form.Group>
             <Form.Group>
                 <Form.Label>Open House</Form.Label>
-                <Form.Control
-                    defaultValue={openHouse}
-                    placeholder="Select OpenHouse"
-                    as="select"
-                    onChange={(changeEvent => setOpenHouse(changeEvent.target.value))}
-                >
-                    <option disabled value="">Select Open House</option>
-                    {createOptions(openHouses)}
-                </Form.Control>
+                <FormOptionSelector placeHolder="Select OpenHouse" value={openHouse} onChange={setOpenHouse} options={openHouses} />
             </Form.Group>
             <Button
                 variant="primary"

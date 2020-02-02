@@ -30,17 +30,17 @@ export const getAreas = () => (dispatch) => {
         });
 };
 
-export const editArea = location => (dispatch) => {
+export const editArea = area => (dispatch) => {
     dispatch({
         type: actionTypes.EDIT_AREAS_STARTED,
-        payload: location,
+        payload: area,
     });
 
-    return sendEditArea(location)
+    return sendEditArea(area)
         .then(() => {
             dispatch({
                 type: actionTypes.EDIT_AREAS_SUCCESS,
-                payload: location,
+                payload: area,
             });
         })
         .catch((error) => {
@@ -56,13 +56,13 @@ export const editArea = location => (dispatch) => {
         });
 };
 
-export const createArea = location => (dispatch) => {
+export const createArea = area => (dispatch) => {
     dispatch({
         type: actionTypes.CREATE_AREAS_STARTED,
-        payload: location,
+        payload: area,
     });
 
-    return sendNewArea(location)
+    return sendNewArea(area)
         .then((response) => {
             dispatch({
                 type: actionTypes.CREATE_AREAS_SUCCESS,
@@ -82,17 +82,17 @@ export const createArea = location => (dispatch) => {
         });
 };
 
-export const deleteArea = locationID => (dispatch) => {
+export const deleteArea = areaID => (dispatch) => {
     dispatch({
         type: actionTypes.DELETE_AREAS_STARTED,
-        payload: locationID,
+        payload: areaID,
     });
 
-    return sendDeleteArea(locationID)
+    return sendDeleteArea(areaID)
         .then(() => {
             dispatch({
                 type: actionTypes.DELETE_AREAS_SUCCESS,
-                payload: locationID,
+                payload: areaID,
             });
         })
         .catch((error) => {

@@ -1,17 +1,14 @@
-import moment from 'moment';
 import {
-    filterAttributes,
-    getBackEndURL, handleRequestError, normalizeDate, pullOutJson,
+    filterAttributes, getBackEndURL, handleRequestError, pullOutJson,
 } from './index';
 
-// eslint-disable-next-line import/prefer-default-export
-export const fetchOpenHouses = () => {
+export const fetchEateries = () => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/openhouses`,
+        `${getBackEndURL()}/eateries`,
         {
             method: 'GET',
             headers,
@@ -21,46 +18,46 @@ export const fetchOpenHouses = () => {
         .then(pullOutJson);
 };
 
-export const sendEditOpenHouse = (openHouse) => {
+export const sendEditEatery = (eatery) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/openhouses/${openHouse.uuid}`,
+        `${getBackEndURL()}/eateries/${eatery.uuid}`,
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(filterAttributes(openHouse, ['uuid', 'attendees'])),
+            body: JSON.stringify(filterAttributes(eatery, ['uuid'])),
         },
     )
         .then(handleRequestError);
 };
 
-export const sendNewOpenHouse = (openHouse) => {
+export const sendNewEatery = (eatery) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/openhouses`,
+        `${getBackEndURL()}/eateries`,
         {
             method: 'POST',
             headers,
-            body: JSON.stringify(openHouse),
+            body: JSON.stringify(eatery),
         },
     )
         .then(handleRequestError)
         .then(pullOutJson);
 };
 
-export const sendDeleteOpenHouse = (openHouseID) => {
+export const sendDeleteEatery = (eateryID) => {
     const headers = new Headers({
         'content-type': 'application/json',
     });
 
     return fetch(
-        `${getBackEndURL()}/openhouses/${openHouseID}`,
+        `${getBackEndURL()}/eateries/${eateryID}`,
         {
             method: 'DELETE',
             headers,
@@ -69,9 +66,9 @@ export const sendDeleteOpenHouse = (openHouseID) => {
         .then(handleRequestError);
 };
 
-export const getNewOpenHouse = () => ({
+export const getNewEatery = () => ({
     name: '',
-    info: '',
-    visible: false,
-    date: normalizeDate(moment().unix()),
+    building: '',
+    openTime: '00:00',
+    closeTime: '01:00',
 });

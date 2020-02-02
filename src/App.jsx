@@ -7,6 +7,7 @@ import { getLocations } from './actions/locations';
 import { getAreas } from './actions/areas';
 import { getOpenHouses } from './actions/openHouses';
 import { getEvents } from './actions/events';
+import { getEateries } from './actions/eateries';
 
 const app = (renderTo) => {
     const store = configureStore();
@@ -14,6 +15,7 @@ const app = (renderTo) => {
     store.dispatch(getAreas());
     store.dispatch(getOpenHouses());
     store.dispatch(getEvents());
+    store.dispatch(getEateries());
     ReactDOM.render(
         <Provider store={store}>
             <Layout />

@@ -51,3 +51,5 @@ export const filterAttributes = (element, keys) => Object.keys(element)
         ...newElement,
         [key]: element[key],
     }), {});
+
+export const displayTime = time => moment(time, 'H:m').format('h:mm A');

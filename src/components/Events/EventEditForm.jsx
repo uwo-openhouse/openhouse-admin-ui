@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import * as PropTypes from 'prop-types';
-import TimePicker from 'react-time-picker';
-import './EventEditForm.scss';
-
-const createOptions = options => options.map(({ uuid, name }) => (
-    <option key={uuid} value={uuid}>
-        {name}
-    </option>
-));
+import FormOptionSelector from '../Form/FormOptionSelector';
+import FormTimePicker from '../Form/FormTimePicker';
+import FormValidationError from '../Form/FormValidationError';
+import { validateEvent } from '../../service/events';
+import { isValid } from '../../service';
 
 const EventEditForm = ({
     onClose, onSave, event, openHouses, locations, areas,
@@ -18,14 +15,17 @@ const EventEditForm = ({
     const [area, setArea] = useState(event.area);
     const [building, setBuilding] = useState(event.building);
     const [openHouse, setOpenHouse] = useState(event.openHouse);
-    const [time, setTime] = useState(event.time);
+    const [startTime, setStartTime] = useState(event.startTime);
+    const [endTime, setEndTime] = useState(event.endTime);
     const [room, setRoom] = useState(event.room);
+    const [validationErrors, setValidationErrors] = useState(undefined);
 
     return (
         <Form>
             <Form.Group>
                 <Form.Label>Name</Form.Label>
                 <Form.Control placeholder="name" defaultValue={name} onChange={changeEvent => setName(changeEvent.target.value)} />
+                <FormValidationError attribute="name" validation={validationErrors} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Description</Form.Label>
@@ -36,57 +36,50 @@ const EventEditForm = ({
                     defaultValue={description}
                     onChange={changeEvent => setDescription(changeEvent.target.value)}
                 />
+                <FormValidationError attribute="description" validation={validationErrors} />
             </Form.Group>
             <Form.Group>
-                <Form.Label>Time</Form.Label>
-                <TimePicker onChange={setTime} value={time} maxDetail="minute" />
+                <Form.Label>Start Time</Form.Label>
+                <FormTimePicker onChange={setStartTime} value={startTime} maxDetail="minute" />
+                <FormValidationError attribute="startTime" validation={validationErrors} />
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>End Time</Form.Label>
+                <FormTimePicker minTime={startTime} onChange={setEndTime} value={endTime} maxDetail="minute" />
+                <FormValidationError attribute="endTime" validation={validationErrors} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Area</Form.Label>
-                <Form.Control
-                    defaultValue={area}
-                    placeholder="Select Area"
-                    as="select"
-                    onChange={(changeEvent => setArea(changeEvent.target.value))}
-                >
-                    <option disabled value="">Select Area</option>
-                    {createOptions(areas)}
-                </Form.Control>
+                <FormOptionSelector placeHolder="Select Area" value={area} onChange={setArea} options={areas} />
+                <FormValidationError attribute="area" validation={validationErrors} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Building</Form.Label>
-                <Form.Control
-                    defaultValue={building}
-                    placeholder="Select Building"
-                    as="select"
-                    onChange={(changeEvent => setBuilding(changeEvent.target.value))}
-                >
-                    <option disabled value="">Select Building</option>
-                    {createOptions(locations)}
-                </Form.Control>
+                <FormOptionSelector placeHolder="Select Building" value={building} onChange={setBuilding} options={locations} />
+                <FormValidationError attribute="building" validation={validationErrors} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Room</Form.Label>
                 <Form.Control placeholder="room" defaultValue={room} onChange={changeEvent => setRoom(changeEvent.target.value)} />
+                <FormValidationError attribute="room" validation={validationErrors} />
             </Form.Group>
             <Form.Group>
                 <Form.Label>Open House</Form.Label>
-                <Form.Control
-                    defaultValue={openHouse}
-                    placeholder="Select OpenHouse"
-                    as="select"
-                    onChange={(changeEvent => setOpenHouse(changeEvent.target.value))}
-                >
-                    <option disabled value="">Select Open House</option>
-                    {createOptions(openHouses)}
-                </Form.Control>
+                <FormOptionSelector placeHolder="Select OpenHouse" value={openHouse} onChange={setOpenHouse} options={openHouses} />
+                <FormValidationError attribute="openHouse" validation={validationErrors} />
             </Form.Group>
             <Button
                 variant="primary"
                 onClick={() => {
-                    onSave({
-                        ...event, name, description, area, building, openHouse, time, room,
-                    }).then(() => onClose());
+                    const newEvent = {
+                        ...event, name, description, area, building, openHouse, startTime, endTime, room,
+                    };
+                    const errors = validateEvent(newEvent, locations, areas, openHouses);
+                    if (isValid(errors)) {
+                        onSave(newEvent).then(() => onClose());
+                    } else {
+                        setValidationErrors(errors);
+                    }
                 }}
             >
                 Submit
@@ -104,7 +97,8 @@ EventEditForm.propTypes = {
         area: PropTypes.string.isRequired,
         building: PropTypes.string.isRequired,
         openHouse: PropTypes.string.isRequired,
-        time: PropTypes.string.isRequired,
+        startTime: PropTypes.string.isRequired,
+        endTime: PropTypes.string.isRequired,
         room: PropTypes.string.isRequired,
     }).isRequired,
     areas: PropTypes.arrayOf(PropTypes.shape({

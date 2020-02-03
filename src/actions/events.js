@@ -45,7 +45,7 @@ export const editEvent = event => (dispatch) => {
         })
         .catch((error) => {
             dispatch({
-                type: actionTypes.FETCH_EVENTS_FAILURE,
+                type: actionTypes.EDIT_EVENTS_FAILURE,
                 payload: error,
             });
         })

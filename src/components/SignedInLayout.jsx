@@ -9,7 +9,15 @@ const SignedInLayout = ({ children }) => (
     <div>
         <Navbar bg="light" expand="lg">
             <Link to="/">
-                <Navbar.Brand>Open House</Navbar.Brand>
+                <Navbar.Brand>
+                    <img
+                        className="brand-image"
+                        alt="Logo"
+                        src="/brand.svg"
+                        width="30"
+                        height="30"
+                    />
+                </Navbar.Brand>
             </Link>
             <Nav>
                 <Link to="/locations">
@@ -23,6 +31,9 @@ const SignedInLayout = ({ children }) => (
                 </Link>
                 <Link to="/events">
                     <Navbar.Text>Events</Navbar.Text>
+                </Link>
+                <Link to="/eateries">
+                    <Navbar.Text>Eateries</Navbar.Text>
                 </Link>
             </Nav>
         </Navbar>

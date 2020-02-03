@@ -17,7 +17,13 @@ const EventValidationRow = ({ id, event, validation }) => {
                         placement="top"
                         overlay={(
                             <Tooltip id={`error-tooltip-${attribute}-${id}`}>
-                                {validation[attribute]}
+                                {validation[attribute].map((validationError, index) => (
+                                    // eslint-disable-next-line react/no-array-index-key
+                                    <React.Fragment key={index}>
+                                        {validationError}
+                                        <br />
+                                    </React.Fragment>
+                                ))}
                             </Tooltip>
                         )}
                     >
@@ -32,7 +38,8 @@ const EventValidationRow = ({ id, event, validation }) => {
         <tr className={`event-validation-row ${isInvalid && 'table-danger'}`}>
             {createCell('name')}
             {createCell('description')}
-            {createCell('time')}
+            {createCell('startTime')}
+            {createCell('endTime')}
             {createCell('area')}
             {createCell('building')}
             {createCell('room')}

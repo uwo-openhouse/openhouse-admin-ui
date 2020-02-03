@@ -1,8 +1,6 @@
-import validate from 'validate.js';
 import moment from 'moment';
 import {
-    createNameMap, filterUUID,
-    getBackEndURL, handleRequestError, pullOutJson,
+    createNameMap, filterAttributes, getBackEndURL, getIDs, handleRequestError, pullOutJson, validate,
 } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -32,7 +30,7 @@ export const sendEditEvent = (event) => {
         {
             method: 'PUT',
             headers,
-            body: JSON.stringify(filterUUID(event)),
+            body: JSON.stringify(filterAttributes(event, ['uuid', 'attendees'])),
         },
     )
         .then(handleRequestError);
@@ -76,22 +74,13 @@ export const getNewEvent = () => ({
     area: '',
     building: '',
     openHouse: '',
-    time: '00:00',
+    startTime: '00:00',
+    endTime: '01:00',
     room: '',
 });
 
-validate.validators.time = (value, { is24Hour, is12Hour, message }) => {
-    const isValid24Hour = moment(value, 'H:m', true).isValid();
-    const isValid12Hour = moment(value, 'h:m A', true).isValid();
-
-    if (!((is12Hour && isValid12Hour) || (is24Hour && isValid24Hour))) {
-        return message;
-    }
-    return undefined;
-};
-
-export const validateEventCSV = (events, buildingNames, areaNames, openHouseNames) => {
-    const eventConstraints = {
+export const validateEvent = (event, buildings, areas, openHouses) => {
+    const eventConstraints = ({
         name: {
             presence: true,
             length: {
@@ -104,12 +93,87 @@ export const validateEventCSV = (events, buildingNames, areaNames, openHouseName
                 minimum: 1,
             },
         },
-        time: {
+        endTime: {
             presence: true,
             time: {
                 is24Hour: true,
                 is12Hour: true,
                 message: '^%{value} is not a valid time',
+            },
+        },
+        startTime: {
+            presence: true,
+            time: {
+                is24Hour: true,
+                is12Hour: true,
+                message: '^%{value} is not a valid time',
+            },
+            isBefore: {
+                otherTime: event.endTime,
+                message: `^Start time %{value} is not before end time (${event.endTime})`,
+            },
+        },
+        area: {
+            presence: true,
+            inclusion: {
+                within: getIDs(areas),
+                message: '^Not a valid area',
+            },
+        },
+        building: {
+            presence: true,
+            inclusion: {
+                within: getIDs(buildings),
+                message: '^Not a valid building',
+            },
+        },
+        room: {
+            presence: true,
+        },
+        openHouse: {
+            presence: true,
+            inclusion: {
+                within: getIDs(openHouses),
+                message: '^Not a valid open house',
+            },
+        },
+    });
+
+    return validate(event, eventConstraints);
+};
+
+export const validateEventCSV = (events, buildingNames, areaNames, openHouseNames) => {
+    const eventConstraints = event => ({
+        name: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        description: {
+            presence: true,
+            length: {
+                minimum: 1,
+            },
+        },
+        endTime: {
+            presence: true,
+            time: {
+                is24Hour: true,
+                is12Hour: true,
+                message: '^%{value} is not a valid time',
+            },
+        },
+        startTime: {
+            presence: true,
+            time: {
+                is24Hour: true,
+                is12Hour: true,
+                message: '^%{value} is not a valid time',
+            },
+            isBefore: {
+                otherTime: event.endTime,
+                message: `^Start time %{value} is not before end time (${event.endTime})`,
             },
         },
         area: {
@@ -136,10 +200,12 @@ export const validateEventCSV = (events, buildingNames, areaNames, openHouseName
                 message: '^%{value} is not a valid open house',
             },
         },
-    };
+    });
 
-    return events.map(event => validate(event, eventConstraints));
+    return events.map(event => validate(event, eventConstraints(event)));
 };
+
+const formatTime = time => moment(time, ['H:m', 'h:m A'], true).format('HH:mm');
 
 export const csvImportToEvents = (events, locations, areas, openHouses) => {
     const locationNameMap = createNameMap(locations);
@@ -147,12 +213,13 @@ export const csvImportToEvents = (events, locations, areas, openHouses) => {
     const openHouseNameMap = createNameMap(openHouses);
 
     return events.map(({
-        name, description, area, building, openHouse, time, room,
+        name, description, area, building, openHouse, startTime, endTime, room,
     }) => ({
         name,
         description,
         room,
-        time: moment(time, ['H:m', 'h:m A'], true).format('HH:mm'),
+        startTime: formatTime(startTime),
+        endTime: formatTime(endTime),
         area: areaNameMap[area],
         building: locationNameMap[building],
         openHouse: openHouseNameMap[openHouse],

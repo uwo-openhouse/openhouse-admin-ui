@@ -7,7 +7,9 @@ import { SingleDatePicker } from 'react-dates';
 import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
 import aphroditeInterface from 'react-with-styles-interface-aphrodite';
 import DefaultTheme from 'react-dates/lib/theme/DefaultTheme';
-import { getDefaultTimezone, normalizeDate } from '../../service';
+import { getDefaultTimezone, isValid, normalizeDate } from '../../service';
+import FormValidationError from '../Form/FormValidationError';
+import { validateOpenHouse } from '../../service/openHouses';
 
 ThemedStyleSheet.registerInterface(aphroditeInterface);
 ThemedStyleSheet.registerTheme(DefaultTheme);
@@ -19,12 +21,14 @@ const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
     const [date, setDate] = useState(openHouse.date);
     const [visible, setVisible] = useState(openHouse.visible);
     const [datePickerFocused, setDatePickerFocused] = useState(false);
+    const [validationErrors, setValidationErrors] = useState(undefined);
 
     return (
         <Form>
             <Form.Group>
                 <Form.Label>Name</Form.Label>
                 <Form.Control placeholder="name" defaultValue={name} onChange={event => setName(event.target.value)} />
+                <FormValidationError attribute="name" validation={validationErrors} />
             </Form.Group>
 
             <Form.Group>
@@ -36,6 +40,7 @@ const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
                     defaultValue={info}
                     onChange={event => setInfo(event.target.value)}
                 />
+                <FormValidationError attribute="info" validation={validationErrors} />
             </Form.Group>
 
             <Form.Group>
@@ -47,18 +52,26 @@ const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
                     onFocusChange={({ focused }) => setDatePickerFocused(focused)}
                     id="date-picker"
                 />
+                <FormValidationError attribute="date" validation={validationErrors} />
             </Form.Group>
 
             <Form.Group>
                 <Form.Check type="checkbox" checked={visible} onChange={event => setVisible(event.target.checked)} label="Is Visible" />
+                <FormValidationError attribute="visible" validation={validationErrors} />
             </Form.Group>
 
             <Button
                 variant="primary"
                 onClick={() => {
-                    onSave({
+                    const newOpenHouse = {
                         ...openHouse, name, date, info, visible,
-                    }).then(() => onClose());
+                    };
+                    const errors = validateOpenHouse(newOpenHouse);
+                    if (isValid(errors)) {
+                        onSave(newOpenHouse).then(() => onClose());
+                    } else {
+                        setValidationErrors(errors);
+                    }
                 }}
             >
                 Submit

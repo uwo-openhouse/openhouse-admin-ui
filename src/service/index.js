@@ -92,3 +92,5 @@ val.validators.isSameOrAfter = (value, { otherTime, message }) => {
 export const validate = val;
 
 export const isValid = validationError => validationError === undefined;
+
+export const displayDate = date => moment.unix(date).tz(getDefaultTimezone()).format('MMMM Do YYYY');

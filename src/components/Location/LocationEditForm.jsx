@@ -41,7 +41,7 @@ const LocationEditForm = ({ onClose, onSave, location }) => {
                 variant="primary"
                 onClick={() => {
                     const newLocation = { ...location, name, position };
-                    const errors = validateLocation(location);
+                    const errors = validateLocation(newLocation);
                     if (isValid(errors)) {
                         onSave(newLocation).then(() => onClose());
                     } else {

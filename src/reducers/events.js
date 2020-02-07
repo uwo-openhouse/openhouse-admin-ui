@@ -1,5 +1,5 @@
 import actionTypes from '../actions/actionTypes';
-import { buildMap } from '../service';
+import { buildMap, stateDeleteByAttribute } from '../service';
 
 const DEFAULT_STATE = {
     loading: false,
@@ -48,6 +48,21 @@ export default (state = DEFAULT_STATE, action) => {
                 data: Object.keys(state.data)
                     .filter(key => key !== action.payload)
                     .reduce((result, current) => ({ ...result, [current]: state.data[current] }), {}),
+            };
+        case actionTypes.DELETE_BUILDINGS_SUCCESS:
+            return {
+                ...state,
+                data: stateDeleteByAttribute(state.data, 'building', action.payload),
+            };
+        case actionTypes.DELETE_AREAS_SUCCESS:
+            return {
+                ...state,
+                data: stateDeleteByAttribute(state.data, 'area', action.payload),
+            };
+        case actionTypes.DELETE_OPEN_HOUSES_SUCCESS:
+            return {
+                ...state,
+                data: stateDeleteByAttribute(state.data, 'openHouse', action.payload),
             };
         default:
             return state;

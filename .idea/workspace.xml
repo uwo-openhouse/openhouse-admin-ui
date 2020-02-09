@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="added attendance page and branding">
-      <change afterPath="$PROJECT_DIR$/public/brand.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Attendance/AttendanceList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Attendance/EventAttendance.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Attendance/OpenHouseAttendance.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Attendance/OpenHouseAttendance.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Attendance/AttendanceList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Attendance/OpenHouseAttendance.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditListElement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditListElement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignedInLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignedInLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignedInLayout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignedInLayout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/eateries.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/eateries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

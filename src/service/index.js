@@ -94,3 +94,12 @@ export const validate = val;
 export const isValid = validationError => validationError === undefined;
 
 export const displayDate = date => moment.unix(date).tz(getDefaultTimezone()).format('MMMM Do YYYY');
+
+export const stateDeleteByAttribute = (data, attributeName, filterValue) => (
+    Object.entries(data)
+        .filter(([, value]) => value[attributeName] !== filterValue)
+        .reduce((result, [key, value]) => ({
+            ...result,
+            [key]: value,
+        }), {})
+);

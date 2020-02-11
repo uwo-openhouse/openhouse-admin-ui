@@ -18,16 +18,16 @@ jobs:
             - name: Build
               run: yarn run build
               env:
-                  REACT_APP_BACKEND_URL: https://f5dfwrf3a8.execute-api.us-east-2.amazonaws.com/Prod
+                  REACT_APP_BACKEND_URL: https://vlpl6d8t30.execute-api.us-east-1.amazonaws.com/Prod
                   REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v1
               with:
                   aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                  aws-region: us-east-2
+                  aws-region: us-east-1
             - name: Deploy
-              run: aws s3 sync build/ s3://$BUCKET_NAME --acl public-read
+              run: aws s3 sync build/ s3://$BUCKET_NAME
               env:
                   BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
 

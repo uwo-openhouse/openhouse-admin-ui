@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="added attendance page and branding">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/eateries.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/eateries.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/index.js" afterDir="false" />
+    <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580683038151</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added artifacts to build.yml">
+      <created>1581537376399</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1581537376399</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +367,8 @@
     <MESSAGE value="added eatery support" />
     <MESSAGE value="added validation to all the forms" />
     <MESSAGE value="added attendance page and branding" />
-    <option name="LAST_COMMIT_MESSAGE" value="added attendance page and branding" />
+    <MESSAGE value="added artifacts to build.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="added artifacts to build.yml" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1988" y="873" width="800" height="691" key="#ESLint" timestamp="1580336074269">
@@ -384,10 +389,10 @@
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="2067" y="902" width="642" height="626" key="#npm_start/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580333006915" />
-    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2" timestamp="1580704093588">
+    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2" timestamp="1581537358754">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580704093588" />
+    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1581537358754" />
     <state x="1247" y="605" width="2293" height="1213" key="DiffContextDialog" timestamp="1580351455014">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
@@ -416,10 +421,10 @@
     <state x="2150" y="924" width="476" height="581" key="RollbackChangesDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580678264386" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1579562378927" />
     <state width="498" height="446" key="SwitcherDM/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1580683043573">
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1581537383165">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580683043573" />
+    <state x="1988" y="947" width="800" height="535" key="Vcs.Push.Dialog.v2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1581537383165" />
     <state x="2050" y="829" width="676" height="771" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579562378927" />
     <state x="2050" y="829" width="676" height="771" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
     <state x="2161" y="1131" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579562378927" />

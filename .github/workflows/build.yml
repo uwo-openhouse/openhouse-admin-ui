@@ -15,8 +15,11 @@ jobs:
             - name: Build
               run: yarn run build
               env:
-                  REACT_APP_BACKEND_URL: https://f5dfwrf3a8.execute-api.us-east-2.amazonaws.com/Prod
+                  REACT_APP_BACKEND_URL: https://backend.com
                   REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+                  REACT_APP_LOGIN_URL: https://login.com
+                  REACT_APP_LOGOUT_URL: https://logout.com
+                  REACT_APP_AUTH_ENABLED: true
             - uses: actions/upload-artifact@v1
               with:
                   name: build

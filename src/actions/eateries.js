@@ -2,6 +2,7 @@ import actionTypes from './actionTypes';
 import {
     fetchEateries, sendDeleteEatery, sendEditEatery, sendNewEatery,
 } from '../service/eateries';
+import { getToken } from '../reducers';
 
 export const getEateries = () => (dispatch) => {
     dispatch({
@@ -28,13 +29,13 @@ export const getEateries = () => (dispatch) => {
         });
 };
 
-export const editEatery = eatery => (dispatch) => {
+export const editEatery = eatery => (dispatch, getState) => {
     dispatch({
         type: actionTypes.EDIT_EATERIES_STARTED,
         payload: eatery,
     });
 
-    return sendEditEatery(eatery)
+    return sendEditEatery(eatery, getToken(getState()))
         .then(() => {
             dispatch({
                 type: actionTypes.EDIT_EATERIES_SUCCESS,
@@ -54,13 +55,13 @@ export const editEatery = eatery => (dispatch) => {
         });
 };
 
-export const createEatery = eatery => (dispatch) => {
+export const createEatery = eatery => (dispatch, getState) => {
     dispatch({
         type: actionTypes.CREATE_EATERIES_STARTED,
         payload: eatery,
     });
 
-    return sendNewEatery(eatery)
+    return sendNewEatery(eatery, getToken(getState()))
         .then((response) => {
             dispatch({
                 type: actionTypes.CREATE_EATERIES_SUCCESS,
@@ -80,13 +81,13 @@ export const createEatery = eatery => (dispatch) => {
         });
 };
 
-export const deleteEatery = eateryID => (dispatch) => {
+export const deleteEatery = eateryID => (dispatch, getState) => {
     dispatch({
         type: actionTypes.DELETE_EATERIES_STARTED,
         payload: eateryID,
     });
 
-    return sendDeleteEatery(eateryID)
+    return sendDeleteEatery(eateryID, getToken(getState()))
         .then(() => {
             dispatch({
                 type: actionTypes.DELETE_EATERIES_SUCCESS,

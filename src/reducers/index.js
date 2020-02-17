@@ -4,6 +4,7 @@ import areaReducer, * as areas from './areas';
 import openHouseReducer, * as openHouses from './openHouses';
 import eventReducer, * as events from './events';
 import eateryReducer, * as eateries from './eateries';
+import authReducer, * as auth from './auth';
 
 export default {
     locations: locationReducer,
@@ -12,6 +13,7 @@ export default {
     events: eventReducer,
     errors: errorReducer,
     eateries: eateryReducer,
+    auth: authReducer,
 };
 
 export const isLocationsLoaded = state => locations.isLoaded(state.locations);
@@ -45,3 +47,7 @@ export const isEateriesLoaded = state => eateries.isLoaded(state.eateries);
 export const getAllEateries = state => eateries.getAllEateries(state.eateries);
 
 export const getEatery = (state, id) => eateries.getEatery(state.eateries, id);
+
+export const hasToken = state => auth.hasToken(state.auth);
+
+export const getToken = state => auth.getToken(state.auth);

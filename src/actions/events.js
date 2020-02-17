@@ -3,6 +3,7 @@ import actionTypes from './actionTypes';
 import {
     fetchEvents, sendDeleteEvent, sendEditEvent, sendNewEvents,
 } from '../service/events';
+import { getToken } from '../reducers';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getEvents = () => (dispatch) => {
@@ -30,13 +31,13 @@ export const getEvents = () => (dispatch) => {
         });
 };
 
-export const editEvent = event => (dispatch) => {
+export const editEvent = event => (dispatch, getState) => {
     dispatch({
         type: actionTypes.EDIT_EVENTS_STARTED,
         payload: event,
     });
 
-    return sendEditEvent(event)
+    return sendEditEvent(event, getToken(getState()))
         .then(() => {
             dispatch({
                 type: actionTypes.EDIT_EVENTS_SUCCESS,
@@ -56,13 +57,13 @@ export const editEvent = event => (dispatch) => {
         });
 };
 
-export const createEvents = events => (dispatch) => {
+export const createEvents = events => (dispatch, getState) => {
     dispatch({
         type: actionTypes.CREATE_EVENTS_STARTED,
         payload: events,
     });
 
-    return sendNewEvents(events)
+    return sendNewEvents(events, getToken(getState()))
         .then((response) => {
             dispatch({
                 type: actionTypes.CREATE_EVENTS_SUCCESS,
@@ -82,13 +83,13 @@ export const createEvents = events => (dispatch) => {
         });
 };
 
-export const deleteEvent = eventID => (dispatch) => {
+export const deleteEvent = eventID => (dispatch, getState) => {
     dispatch({
         type: actionTypes.DELETE_EVENTS_STARTED,
         payload: eventID,
     });
 
-    return sendDeleteEvent(eventID)
+    return sendDeleteEvent(eventID, getToken(getState()))
         .then(() => {
             dispatch({
                 type: actionTypes.DELETE_EVENTS_SUCCESS,

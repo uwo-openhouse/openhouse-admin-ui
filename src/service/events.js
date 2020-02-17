@@ -2,6 +2,7 @@ import moment from 'moment';
 import {
     createNameMap, filterAttributes, getBackEndURL, getIDs, handleRequestError, pullOutJson, validate,
 } from './index';
+import { getAuthHeaders } from './auth';
 
 // eslint-disable-next-line import/prefer-default-export
 export const fetchEvents = () => {
@@ -20,53 +21,35 @@ export const fetchEvents = () => {
         .then(pullOutJson);
 };
 
-export const sendEditEvent = (event) => {
-    const headers = new Headers({
-        'content-type': 'application/json',
-    });
+export const sendEditEvent = (event, token) => fetch(
+    `${getBackEndURL()}/events/${event.uuid}`,
+    {
+        method: 'PUT',
+        headers: getAuthHeaders(token),
+        body: JSON.stringify(filterAttributes(event, ['uuid', 'attendees'])),
+    },
+)
+    .then(handleRequestError);
 
-    return fetch(
-        `${getBackEndURL()}/events/${event.uuid}`,
-        {
-            method: 'PUT',
-            headers,
-            body: JSON.stringify(filterAttributes(event, ['uuid', 'attendees'])),
-        },
-    )
-        .then(handleRequestError);
-};
+export const sendNewEvents = (events, token) => fetch(
+    `${getBackEndURL()}/events`,
+    {
+        method: 'POST',
+        headers: getAuthHeaders(token),
+        body: JSON.stringify(events),
+    },
+)
+    .then(handleRequestError)
+    .then(pullOutJson);
 
-export const sendNewEvents = (events) => {
-    const headers = new Headers({
-        'content-type': 'application/json',
-    });
-
-    return fetch(
-        `${getBackEndURL()}/events`,
-        {
-            method: 'POST',
-            headers,
-            body: JSON.stringify(events),
-        },
-    )
-        .then(handleRequestError)
-        .then(pullOutJson);
-};
-
-export const sendDeleteEvent = (openHouseID) => {
-    const headers = new Headers({
-        'content-type': 'application/json',
-    });
-
-    return fetch(
-        `${getBackEndURL()}/events/${openHouseID}`,
-        {
-            method: 'DELETE',
-            headers,
-        },
-    )
-        .then(handleRequestError);
-};
+export const sendDeleteEvent = (eventID, token) => fetch(
+    `${getBackEndURL()}/events/${eventID}`,
+    {
+        method: 'DELETE',
+        headers: getAuthHeaders(token),
+    },
+)
+    .then(handleRequestError);
 
 export const getNewEvent = () => ({
     name: '',

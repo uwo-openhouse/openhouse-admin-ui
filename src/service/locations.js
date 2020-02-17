@@ -1,6 +1,7 @@
 import {
     filterAttributes, getBackEndURL, handleRequestError, pullOutJson, validate,
 } from './index';
+import { getAuthHeaders } from './auth';
 
 // eslint-disable-next-line import/prefer-default-export
 export const fetchLocations = () => {
@@ -19,53 +20,35 @@ export const fetchLocations = () => {
         .then(pullOutJson);
 };
 
-export const sendEditLocation = (location) => {
-    const headers = new Headers({
-        'content-type': 'application/json',
-    });
+export const sendEditLocation = (location, token) => fetch(
+    `${getBackEndURL()}/buildings/${location.uuid}`,
+    {
+        method: 'PUT',
+        headers: getAuthHeaders(token),
+        body: JSON.stringify(filterAttributes(location, ['uuid'])),
+    },
+)
+    .then(handleRequestError);
 
-    return fetch(
-        `${getBackEndURL()}/buildings/${location.uuid}`,
-        {
-            method: 'PUT',
-            headers,
-            body: JSON.stringify(filterAttributes(location, ['uuid'])),
-        },
-    )
-        .then(handleRequestError);
-};
+export const sendNewLocation = (location, token) => fetch(
+    `${getBackEndURL()}/buildings`,
+    {
+        method: 'POST',
+        headers: getAuthHeaders(token),
+        body: JSON.stringify(location),
+    },
+)
+    .then(handleRequestError)
+    .then(pullOutJson);
 
-export const sendNewLocation = (location) => {
-    const headers = new Headers({
-        'content-type': 'application/json',
-    });
-
-    return fetch(
-        `${getBackEndURL()}/buildings`,
-        {
-            method: 'POST',
-            headers,
-            body: JSON.stringify(location),
-        },
-    )
-        .then(handleRequestError)
-        .then(pullOutJson);
-};
-
-export const sendDeleteLocation = (locationID) => {
-    const headers = new Headers({
-        'content-type': 'application/json',
-    });
-
-    return fetch(
-        `${getBackEndURL()}/buildings/${locationID}`,
-        {
-            method: 'DELETE',
-            headers,
-        },
-    )
-        .then(handleRequestError);
-};
+export const sendDeleteLocation = (locationID, token) => fetch(
+    `${getBackEndURL()}/buildings/${locationID}`,
+    {
+        method: 'DELETE',
+        headers: getAuthHeaders(token),
+    },
+)
+    .then(handleRequestError);
 
 export const getDefaultPosition = () => ({
     lat: Number(process.env.REACT_APP_DEFAULT_LAT),

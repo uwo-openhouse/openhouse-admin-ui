@@ -1,13 +1,17 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
-import { Nav, Navbar } from 'react-bootstrap';
+import {
+    Button, Nav, Navbar,
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './SignedInLayout.scss';
+import { isAuthEnabled } from '../service/auth';
+import { gotoLoginPage } from '../service';
 
 
-const SignedInLayout = ({ children }) => (
+const SignedInLayout = ({ children, onPurgeAuth }) => (
     <div>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="sm">
             <Link to="/">
                 <Navbar.Brand>
                     <img
@@ -36,6 +40,17 @@ const SignedInLayout = ({ children }) => (
                     <Navbar.Text>Eateries</Navbar.Text>
                 </Link>
             </Nav>
+            <Nav className="ml-auto">
+                <Button onClick={() => {
+                    onPurgeAuth();
+                    if (isAuthEnabled()) {
+                        gotoLoginPage();
+                    }
+                }}
+                >
+Logout
+                </Button>
+            </Nav>
         </Navbar>
         {children}
     </div>
@@ -46,6 +61,7 @@ SignedInLayout.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]).isRequired,
+    onPurgeAuth: PropTypes.func.isRequired,
 };
 
 export default SignedInLayout;

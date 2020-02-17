@@ -2,6 +2,7 @@ import actionTypes from './actionTypes';
 import {
     fetchLocations, sendDeleteLocation, sendEditLocation, sendNewLocation,
 } from '../service/locations';
+import { getToken } from '../reducers';
 
 
 // eslint-disable-next-line import/prefer-default-export
@@ -31,13 +32,13 @@ export const getLocations = () => (dispatch) => {
 };
 
 
-export const editLocation = location => (dispatch) => {
+export const editLocation = location => (dispatch, getState) => {
     dispatch({
         type: actionTypes.EDIT_BUILDINGS_STARTED,
         payload: location,
     });
 
-    return sendEditLocation(location)
+    return sendEditLocation(location, getToken(getState()))
         .then(() => {
             dispatch({
                 type: actionTypes.EDIT_BUILDINGS_SUCCESS,
@@ -57,13 +58,13 @@ export const editLocation = location => (dispatch) => {
         });
 };
 
-export const createLocation = location => (dispatch) => {
+export const createLocation = location => (dispatch, getState) => {
     dispatch({
         type: actionTypes.CREATE_BUILDINGS_STARTED,
         payload: location,
     });
 
-    return sendNewLocation(location)
+    return sendNewLocation(location, getToken(getState()))
         .then((response) => {
             dispatch({
                 type: actionTypes.CREATE_BUILDINGS_SUCCESS,
@@ -83,13 +84,13 @@ export const createLocation = location => (dispatch) => {
         });
 };
 
-export const deleteLocation = locationID => (dispatch) => {
+export const deleteLocation = locationID => (dispatch, getState) => {
     dispatch({
         type: actionTypes.DELETE_BUILDINGS_STARTED,
         payload: locationID,
     });
 
-    return sendDeleteLocation(locationID)
+    return sendDeleteLocation(locationID, getToken(getState()))
         .then(() => {
             dispatch({
                 type: actionTypes.DELETE_BUILDINGS_SUCCESS,

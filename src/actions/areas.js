@@ -2,6 +2,7 @@ import actionTypes from './actionTypes';
 import {
     fetchAreas, sendDeleteArea, sendEditArea, sendNewArea,
 } from '../service/areas';
+import { getToken } from '../reducers';
 
 
 // eslint-disable-next-line import/prefer-default-export
@@ -30,13 +31,13 @@ export const getAreas = () => (dispatch) => {
         });
 };
 
-export const editArea = area => (dispatch) => {
+export const editArea = area => (dispatch, getState) => {
     dispatch({
         type: actionTypes.EDIT_AREAS_STARTED,
         payload: area,
     });
 
-    return sendEditArea(area)
+    return sendEditArea(area, getToken(getState()))
         .then(() => {
             dispatch({
                 type: actionTypes.EDIT_AREAS_SUCCESS,
@@ -56,13 +57,13 @@ export const editArea = area => (dispatch) => {
         });
 };
 
-export const createArea = area => (dispatch) => {
+export const createArea = area => (dispatch, getState) => {
     dispatch({
         type: actionTypes.CREATE_AREAS_STARTED,
         payload: area,
     });
 
-    return sendNewArea(area)
+    return sendNewArea(area, getToken(getState()))
         .then((response) => {
             dispatch({
                 type: actionTypes.CREATE_AREAS_SUCCESS,
@@ -82,13 +83,13 @@ export const createArea = area => (dispatch) => {
         });
 };
 
-export const deleteArea = areaID => (dispatch) => {
+export const deleteArea = areaID => (dispatch, getState) => {
     dispatch({
         type: actionTypes.DELETE_AREAS_STARTED,
         payload: areaID,
     });
 
-    return sendDeleteArea(areaID)
+    return sendDeleteArea(areaID, getToken(getState()))
         .then(() => {
             dispatch({
                 type: actionTypes.DELETE_AREAS_SUCCESS,

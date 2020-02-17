@@ -1,6 +1,7 @@
 import {
     filterAttributes, getBackEndURL, getIDs, handleRequestError, pullOutJson, validate,
 } from './index';
+import { getAuthHeaders } from './auth';
 
 export const fetchEateries = () => {
     const headers = new Headers({
@@ -18,53 +19,35 @@ export const fetchEateries = () => {
         .then(pullOutJson);
 };
 
-export const sendEditEatery = (eatery) => {
-    const headers = new Headers({
-        'content-type': 'application/json',
-    });
+export const sendEditEatery = (eatery, token) => fetch(
+    `${getBackEndURL()}/eateries/${eatery.uuid}`,
+    {
+        method: 'PUT',
+        headers: getAuthHeaders(token),
+        body: JSON.stringify(filterAttributes(eatery, ['uuid'])),
+    },
+)
+    .then(handleRequestError);
 
-    return fetch(
-        `${getBackEndURL()}/eateries/${eatery.uuid}`,
-        {
-            method: 'PUT',
-            headers,
-            body: JSON.stringify(filterAttributes(eatery, ['uuid'])),
-        },
-    )
-        .then(handleRequestError);
-};
+export const sendNewEatery = (eatery, token) => fetch(
+    `${getBackEndURL()}/eateries`,
+    {
+        method: 'POST',
+        headers: getAuthHeaders(token),
+        body: JSON.stringify(eatery),
+    },
+)
+    .then(handleRequestError)
+    .then(pullOutJson);
 
-export const sendNewEatery = (eatery) => {
-    const headers = new Headers({
-        'content-type': 'application/json',
-    });
-
-    return fetch(
-        `${getBackEndURL()}/eateries`,
-        {
-            method: 'POST',
-            headers,
-            body: JSON.stringify(eatery),
-        },
-    )
-        .then(handleRequestError)
-        .then(pullOutJson);
-};
-
-export const sendDeleteEatery = (eateryID) => {
-    const headers = new Headers({
-        'content-type': 'application/json',
-    });
-
-    return fetch(
-        `${getBackEndURL()}/eateries/${eateryID}`,
-        {
-            method: 'DELETE',
-            headers,
-        },
-    )
-        .then(handleRequestError);
-};
+export const sendDeleteEatery = (eateryID, token) => fetch(
+    `${getBackEndURL()}/eateries/${eateryID}`,
+    {
+        method: 'DELETE',
+        headers: getAuthHeaders(token),
+    },
+)
+    .then(handleRequestError);
 
 export const getNewEatery = () => ({
     name: '',

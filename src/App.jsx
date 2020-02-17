@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from './configureStore';
 import Layout from './components/Layout';
 import { getLocations } from './actions/locations';
@@ -8,9 +9,10 @@ import { getAreas } from './actions/areas';
 import { getOpenHouses } from './actions/openHouses';
 import { getEvents } from './actions/events';
 import { getEateries } from './actions/eateries';
+import { setupToken } from './service/auth';
 
 const app = (renderTo) => {
-    const store = configureStore();
+    const { store, persistor } = configureStore();
     store.dispatch(getLocations());
     store.dispatch(getAreas());
     store.dispatch(getOpenHouses());
@@ -18,7 +20,15 @@ const app = (renderTo) => {
     store.dispatch(getEateries());
     ReactDOM.render(
         <Provider store={store}>
-            <Layout />
+            <PersistGate
+                loading={null}
+                persistor={persistor}
+                onBeforeLift={() => {
+                    setupToken(store);
+                }}
+            >
+                <Layout />
+            </PersistGate>
         </Provider>, renderTo,
     );
 };

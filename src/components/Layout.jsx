@@ -1,6 +1,5 @@
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import React from 'react';
-import SignedInLayout from './SignedInLayout';
 import LocationEditList from '../containers/Location/LocationEditList';
 import AreaEditList from '../containers/Area/AreaEditList';
 import ErrorList from '../containers/ErrorList/ErrorList';
@@ -8,6 +7,7 @@ import OpenHouseEditList from '../containers/Open House/OpenHouseEditList';
 import EventEditList from '../containers/Events/EventEditList';
 import EateryEditList from '../containers/Eateries/EateryEditList';
 import AttendanceList from '../containers/Attendance/AttendanceList';
+import SignedInLayout from '../containers/SignedInLayout';
 
 
 const Layout = () => (

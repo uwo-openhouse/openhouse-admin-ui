@@ -20,6 +20,9 @@ jobs:
               env:
                   REACT_APP_BACKEND_URL: https://vlpl6d8t30.execute-api.us-east-1.amazonaws.com/Prod
                   REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+                  REACT_APP_LOGIN_URL: https://uwo-openhouse.auth.us-east-1.amazoncognito.com/login?client_id=3bpfpeavkpmm7krqgbqlbstjat&response_type=token&scope=uwo-openhouse-api/areas:manage+uwo-openhouse-api/buildings:manage+uwo-openhouse-api/eateries:manage+uwo-openhouse-api/events:manage+uwo-openhouse-api/openhouses:manage&redirect_uri=https://d1yeghzuu1exfg.cloudfront.net/
+                  REACT_APP_LOGOUT_URL: https://uwo-openhouse.auth.us-east-1.amazoncognito.com/logout?client_id=3bpfpeavkpmm7krqgbqlbstjat&response_type=token&scope=uwo-openhouse-api/areas:manage+uwo-openhouse-api/buildings:manage+uwo-openhouse-api/eateries:manage+uwo-openhouse-api/events:manage+uwo-openhouse-api/openhouses:manage&redirect_uri=https://d1yeghzuu1exfg.cloudfront.net/
+                  REACT_APP_AUTH_ENABLED: true
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v1
               with:

@@ -1,14 +1,19 @@
-
-
-// eslint-disable-next-line import/prefer-default-export
 import moment from 'moment-timezone';
 import val from 'validate.js';
 
+// eslint-disable-next-line import/prefer-default-export
 export const getBackEndURL = () => process.env.REACT_APP_BACKEND_URL;
 
+export const getLoginURL = () => process.env.REACT_APP_LOGIN_URL;
+
+export const gotoLoginPage = () => {
+    window.location.href = getLoginURL();
+};
 
 export const handleRequestError = (response) => {
-    // TODO handle auth
+    if (response.status === 403) {
+        gotoLoginPage();
+    }
     if (!response.ok) {
         throw Error(response.statusText);
     }

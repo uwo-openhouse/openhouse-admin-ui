@@ -1,6 +1,8 @@
 
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import {
+    Button, Card, Form,
+} from 'react-bootstrap';
 import * as PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
@@ -8,12 +10,12 @@ import './EditListElement.scss';
 
 
 const EditListElement = ({
-    children, id, editVisible, deleteVisible, onEdit, onDelete,
+    children, id, editVisible, deleteVisible, onEdit, onDelete, displayCheckBox, isChecked, onCheck,
 }) => (
     <Card className="edit-list-element">
         <Card.Body>
             {children}
-            {editVisible && (
+            {(editVisible && !displayCheckBox) && (
                 <Button
                     className="edit-button"
                     variant="primary"
@@ -22,7 +24,7 @@ const EditListElement = ({
                     <FontAwesomeIcon icon={faEdit} />
                 </Button>
             )}
-            {deleteVisible && (
+            {(deleteVisible && !displayCheckBox) && (
                 <Button
                     className="delete-button"
                     variant="danger"
@@ -31,6 +33,12 @@ const EditListElement = ({
                     <FontAwesomeIcon icon={faTrashAlt} />
                 </Button>
             )}
+            {displayCheckBox && (
+                <Form>
+                    <Form.Check type="checkbox" checked={isChecked} onChange={() => onCheck(id)} />
+                </Form>
+            )}
+
         </Card.Body>
     </Card>
 );
@@ -45,6 +53,9 @@ EditListElement.propTypes = {
     deleteVisible: PropTypes.bool.isRequired,
     onEdit: PropTypes.func,
     onDelete: PropTypes.func,
+    displayCheckBox: PropTypes.bool.isRequired,
+    isChecked: PropTypes.bool.isRequired,
+    onCheck: PropTypes.func.isRequired,
 };
 
 EditListElement.defaultProps = {

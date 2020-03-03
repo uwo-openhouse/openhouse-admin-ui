@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c12939e-cdcc-47fd-ab55-1f96362cb85c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy_prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy_prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/EditList/DeleteGroupForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Area/AreaEditList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Area/AreaEditList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Eateries/EateryEditList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Eateries/EateryEditList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditList/EditList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditList/EditList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditList/EditList.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditList/EditList.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditList/EditListElement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditList/EditListElement.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/EventEditList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/EventEditList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Location/LocationEditList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Location/LocationEditList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Open House/OpenHouseEditList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Area/AreaEditList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Area/AreaEditList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Eateries/EateryEditList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Eateries/EateryEditList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Events/EventEditList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/EventEditList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Location/LocationEditList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Location/LocationEditList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Open House/OpenHouseEditList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Open House/OpenHouseEditList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -190,6 +203,7 @@
       <workItem from="1581703914361" duration="4980000" />
       <workItem from="1581904760013" duration="4074000" />
       <workItem from="1582058048872" duration="1275000" />
+      <workItem from="1583260109958" duration="8356000" />
     </task>
     <task id="LOCAL-00001" summary="added building editing">
       <created>1576437892899</created>
@@ -423,32 +437,32 @@
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="2067" y="902" width="642" height="626" key="#npm_start/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580333006915" />
-    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2" timestamp="1581907703358">
+    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2" timestamp="1583275467589">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1581907703358" />
+    <state x="1958" y="808" width="1195" height="1107" key="CommitChangelistDialog2/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1583275467589" />
     <state x="1247" y="605" width="2293" height="1213" key="DiffContextDialog" timestamp="1580351455014">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
     <state x="1247" y="605" width="2293" height="1213" key="DiffContextDialog/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1580351455014" />
     <state x="2176" y="969" width="424" height="491" key="FileChooserDialogImpl" timestamp="1579562378927" />
     <state x="2176" y="969" width="424" height="491" key="FileChooserDialogImpl/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1579562378927" />
-    <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1581908834139">
+    <state width="2470" height="385" key="GridCell.Tab.0.bottom" timestamp="1583273811500">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.bottom/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1581908834139" />
-    <state width="2470" height="385" key="GridCell.Tab.0.center" timestamp="1581908834138">
+    <state width="2470" height="385" key="GridCell.Tab.0.bottom/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1583273811500" />
+    <state width="2470" height="385" key="GridCell.Tab.0.center" timestamp="1583273811500">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.center/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1581908834138" />
-    <state width="2470" height="385" key="GridCell.Tab.0.left" timestamp="1581908834138">
+    <state width="2470" height="385" key="GridCell.Tab.0.center/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1583273811500" />
+    <state width="2470" height="385" key="GridCell.Tab.0.left" timestamp="1583273811500">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.left/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1581908834138" />
-    <state width="2470" height="385" key="GridCell.Tab.0.right" timestamp="1581908834139">
+    <state width="2470" height="385" key="GridCell.Tab.0.left/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1583273811500" />
+    <state width="2470" height="385" key="GridCell.Tab.0.right" timestamp="1583273811500">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>
-    <state width="2470" height="385" key="GridCell.Tab.0.right/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1581908834139" />
+    <state width="2470" height="385" key="GridCell.Tab.0.right/1080.478.2560.1440/0.505.1080.2055@1080.478.2560.1440" timestamp="1583273811500" />
     <state x="2150" y="924" width="476" height="581" key="RollbackChangesDialog" timestamp="1580678264386">
       <screen x="1080" y="478" width="2560" height="1440" />
     </state>

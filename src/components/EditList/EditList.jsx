@@ -23,6 +23,10 @@ const EditList = ({
         }
     };
 
+    const selectAll = () => {
+        setSelectedIds(elements.map(({ uuid }) => uuid));
+    };
+
     const onDeleteAll = () => Promise.all(selectedIds.map(selectedId => onDeleteAction(selectedId))).then(() => {
         setSelectedIds([]);
         setIsSelecting(false);
@@ -53,6 +57,13 @@ const EditList = ({
                         onClick={() => setIsModalActive(true)}
                     >
                         <FontAwesomeIcon icon={faTrashAlt} />
+                    </Button>
+                    <Button
+                        className="button"
+                        variant="primary"
+                        onClick={selectAll}
+                    >
+                        Select All
                     </Button>
                     <Button
                         className="button"

@@ -15,7 +15,9 @@ import { getNewEvent } from '../../service/events';
 import EventCreateForm from '../../containers/Events/EventCreateForm';
 import EventImportForm from '../../containers/Events/EventImportForm';
 
-const EventEditList = ({ events, openHouses, areas }) => {
+const EventEditList = ({
+    events, openHouses, areas, onDelete,
+}) => {
     const [activeModal, setActiveModal] = useState(MODAL_TYPES.none);
     const [selectedID, setSelectedID] = useState(null);
     const [filter, setFilter] = useState({});
@@ -92,6 +94,8 @@ const EventEditList = ({ events, openHouses, areas }) => {
                     setActiveModal(MODAL_TYPES.delete);
                 }}
                 onNew={() => setActiveModal(MODAL_TYPES.new)}
+                onDeleteAction={onDelete}
+                name="Events"
             />
             <CenteredModal
                 onClose={closeModal}
@@ -151,6 +155,7 @@ EventEditList.propTypes = {
             name: PropTypes.string.isRequired,
         }),
     ).isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default EventEditList;

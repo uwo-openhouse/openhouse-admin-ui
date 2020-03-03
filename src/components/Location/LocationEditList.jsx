@@ -9,7 +9,7 @@ import { getNewLocation } from '../../service/locations';
 import LocationDeleteForm from '../../containers/Location/LocationDeleteForm';
 import { MODAL_TYPES } from '../../service';
 
-const LocationEditList = ({ locations }) => {
+const LocationEditList = ({ locations, onDelete }) => {
     const [activeModal, setActiveModal] = useState(MODAL_TYPES.none);
     const [selectedID, setSelectedID] = useState(null);
     const closeModal = () => setActiveModal(MODAL_TYPES.none);
@@ -30,6 +30,8 @@ const LocationEditList = ({ locations }) => {
                     setActiveModal(MODAL_TYPES.delete);
                 }}
                 onNew={() => setActiveModal(MODAL_TYPES.new)}
+                onDeleteAction={onDelete}
+                name="Locations"
             />
             <CenteredModal
                 onClose={closeModal}
@@ -63,6 +65,7 @@ LocationEditList.propTypes = {
             name: PropTypes.string.isRequired,
         }),
     ).isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default LocationEditList;

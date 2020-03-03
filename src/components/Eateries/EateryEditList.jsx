@@ -9,7 +9,7 @@ import EateryEditForm from '../../containers/Eateries/EateryEditForm';
 import EateryCreateForm from '../../containers/Eateries/EateryCreateForm';
 import { getNewEatery } from '../../service/eateries';
 
-const EateryEditList = ({ eateries }) => {
+const EateryEditList = ({ eateries, onDelete }) => {
     const [activeModal, setActiveModal] = useState(MODAL_TYPES.none);
     const [selectedID, setSelectedID] = useState(null);
     const closeModal = () => setActiveModal(MODAL_TYPES.none);
@@ -30,6 +30,8 @@ const EateryEditList = ({ eateries }) => {
                     setActiveModal(MODAL_TYPES.delete);
                 }}
                 onNew={() => setActiveModal(MODAL_TYPES.new)}
+                onDeleteAction={onDelete}
+                name="Eateries"
             />
             <CenteredModal
                 onClose={closeModal}
@@ -66,6 +68,7 @@ EateryEditList.propTypes = {
             closeTime: PropTypes.string.isRequired,
         }),
     ).isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default EateryEditList;

@@ -9,7 +9,7 @@ import { getNewOpenHouse } from '../../service/openHouses';
 import OpenHouseCreateForm from '../../containers/Open House/OpenHouseCreateForm';
 import OpenHouseDeleteForm from '../../containers/Open House/OpenHouseDeleteForm';
 
-const OpenHouseEditList = ({ openHouses }) => {
+const OpenHouseEditList = ({ openHouses, onDelete }) => {
     const [activeModal, setActiveModal] = useState(MODAL_TYPES.none);
     const [selectedID, setSelectedID] = useState(null);
     const closeModal = () => setActiveModal(MODAL_TYPES.none);
@@ -30,6 +30,8 @@ const OpenHouseEditList = ({ openHouses }) => {
                     setActiveModal(MODAL_TYPES.delete);
                 }}
                 onNew={() => setActiveModal(MODAL_TYPES.new)}
+                onDeleteAction={onDelete}
+                name="Open Houses"
             />
             <CenteredModal
                 onClose={closeModal}
@@ -66,6 +68,7 @@ OpenHouseEditList.propTypes = {
             date: PropTypes.number.isRequired,
         }),
     ).isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default OpenHouseEditList;

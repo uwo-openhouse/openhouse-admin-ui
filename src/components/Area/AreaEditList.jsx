@@ -9,7 +9,7 @@ import AreaEditForm from '../../containers/Area/AreaEditForm';
 import AreaCreateForm from '../../containers/Area/AreaCreateForm';
 import AreaDeleteForm from '../../containers/Area/AreaDeleteForm';
 
-const AreaEditList = ({ areas }) => {
+const AreaEditList = ({ areas, onDelete }) => {
     const [activeModal, setActiveModal] = useState(MODAL_TYPES.none);
     const [selectedID, setSelectedID] = useState(null);
     const closeModal = () => setActiveModal(MODAL_TYPES.none);
@@ -30,6 +30,8 @@ const AreaEditList = ({ areas }) => {
                     setActiveModal(MODAL_TYPES.delete);
                 }}
                 onNew={() => setActiveModal(MODAL_TYPES.new)}
+                onDeleteAction={onDelete}
+                name="Areas"
             />
             <CenteredModal
                 onClose={closeModal}
@@ -64,6 +66,7 @@ AreaEditList.propTypes = {
             color: PropTypes.string.isRequired,
         }),
     ).isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default AreaEditList;

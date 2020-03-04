@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import LocationPicker from 'react-location-picker';
 import * as PropTypes from 'prop-types';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import FormValidationError from '../Form/FormValidationError';
 import { validateLocation } from '../../service/locations';
 import { isValid } from '../../service';
+import LoadingButton from '../LoadingButton';
 
 const LocationEditForm = ({ onClose, onSave, location }) => {
     const [name, setName] = useState(location.name);
@@ -37,20 +38,23 @@ const LocationEditForm = ({ onClose, onSave, location }) => {
                 <FormValidationError attribute="position.lat" validation={validationErrors} />
                 <FormValidationError attribute="position.lng" validation={validationErrors} />
             </Form.Group>
-            <Button
-                variant="primary"
+            <LoadingButton
+                buttonProps={{
+                    variant: 'primary',
+                }}
+                onSuccess={() => onClose()}
                 onClick={() => {
                     const newLocation = { ...location, name, position };
                     const errors = validateLocation(newLocation);
                     if (isValid(errors)) {
-                        onSave(newLocation).then(() => onClose());
-                    } else {
-                        setValidationErrors(errors);
+                        return onSave(newLocation);
                     }
+                    setValidationErrors(errors);
+                    return Promise.reject();
                 }}
             >
                 Submit
-            </Button>
+            </LoadingButton>
         </Form>
     );
 };

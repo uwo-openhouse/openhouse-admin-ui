@@ -23,6 +23,7 @@ export const getLocations = () => (dispatch) => {
                 type: actionTypes.FETCH_BUILDINGS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -50,6 +51,7 @@ export const editLocation = location => (dispatch, getState) => {
                 type: actionTypes.EDIT_BUILDINGS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -76,6 +78,7 @@ export const createLocation = location => (dispatch, getState) => {
                 type: actionTypes.CREATE_BUILDINGS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -102,6 +105,7 @@ export const deleteLocation = locationID => (dispatch, getState) => {
                 type: actionTypes.DELETE_BUILDINGS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({

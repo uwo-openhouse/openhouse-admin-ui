@@ -68,7 +68,10 @@ const EditList = ({
                     <Button
                         className="button"
                         variant="primary"
-                        onClick={() => setIsSelecting(false)}
+                        onClick={() => {
+                            setSelectedIds([]);
+                            setIsSelecting(false);
+                        }}
                     >
                         Cancel
                     </Button>

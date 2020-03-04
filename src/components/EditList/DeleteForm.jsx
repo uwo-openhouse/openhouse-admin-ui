@@ -1,6 +1,7 @@
-import { Badge, Button, Form } from 'react-bootstrap';
+import { Badge, Form } from 'react-bootstrap';
 import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
+import LoadingButton from '../LoadingButton';
 
 
 const DeleteForm = ({
@@ -27,16 +28,16 @@ to confirm
                 </Form.Label>
                 <Form.Control placeholder="name" defaultValue={enteredName} onChange={event => setEnteredName(event.target.value)} />
             </Form.Group>
-            <Button
-                variant="danger"
-                disabled={enteredName !== name}
-                onClick={() => {
-                    onDelete(id);
-                    onClose();
+            <LoadingButton
+                buttonProps={{
+                    variant: 'danger',
                 }}
+                disabled={enteredName !== name}
+                onClick={() => onDelete(id)}
+                onSuccess={onClose}
             >
 Delete
-            </Button>
+            </LoadingButton>
         </Form>
     );
 };
@@ -44,8 +45,12 @@ Delete
 DeleteForm.propTypes = {
     onDelete: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     id: PropTypes.string.isRequired,
+};
+
+DeleteForm.defaultProps = {
+    name: '',
 };
 
 export default DeleteForm;

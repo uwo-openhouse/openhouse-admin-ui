@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import FormTimePicker from '../Form/FormTimePicker';
 import FormOptionSelector from '../Form/FormOptionSelector';
 import FormValidationError from '../Form/FormValidationError';
 import { validateEatery } from '../../service/eateries';
 import { isValid } from '../../service';
+import LoadingButton from '../LoadingButton';
 
 
 const EateryEditForm = ({
@@ -39,22 +40,25 @@ const EateryEditForm = ({
                 <FormOptionSelector placeHolder="Select Building" value={building} onChange={setBuilding} options={locations} />
                 <FormValidationError attribute="building" validation={validationErrors} />
             </Form.Group>
-            <Button
-                variant="primary"
+            <LoadingButton
+                buttonProps={{
+                    variant: 'primary',
+                }}
+                onSuccess={() => onClose()}
                 onClick={() => {
                     const newEatery = {
                         ...eatery, name, building, openTime, closeTime,
                     };
                     const errors = validateEatery(newEatery, locations);
                     if (isValid(errors)) {
-                        onSave(newEatery).then(() => onClose());
-                    } else {
-                        setValidationErrors(errors);
+                        return onSave(newEatery);
                     }
+                    setValidationErrors(errors);
+                    return Promise.reject();
                 }}
             >
                 Submit
-            </Button>
+            </LoadingButton>
         </Form>
     );
 };

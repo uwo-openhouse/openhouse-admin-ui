@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
-
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import moment from 'moment-timezone';
 import { SingleDatePicker } from 'react-dates';
 import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
@@ -10,6 +9,7 @@ import DefaultTheme from 'react-dates/lib/theme/DefaultTheme';
 import { getDefaultTimezone, isValid, normalizeDate } from '../../service';
 import FormValidationError from '../Form/FormValidationError';
 import { validateOpenHouse } from '../../service/openHouses';
+import LoadingButton from '../LoadingButton';
 
 ThemedStyleSheet.registerInterface(aphroditeInterface);
 ThemedStyleSheet.registerTheme(DefaultTheme);
@@ -59,23 +59,25 @@ const OpenHouseEditForm = ({ onClose, onSave, openHouse }) => {
                 <Form.Check type="checkbox" checked={visible} onChange={event => setVisible(event.target.checked)} label="Is Visible" />
                 <FormValidationError attribute="visible" validation={validationErrors} />
             </Form.Group>
-
-            <Button
-                variant="primary"
+            <LoadingButton
+                buttonProps={{
+                    variant: 'primary',
+                }}
+                onSuccess={() => onClose()}
                 onClick={() => {
                     const newOpenHouse = {
                         ...openHouse, name, date, info, visible,
                     };
                     const errors = validateOpenHouse(newOpenHouse);
                     if (isValid(errors)) {
-                        onSave(newOpenHouse).then(() => onClose());
-                    } else {
-                        setValidationErrors(errors);
+                        return onSave(newOpenHouse);
                     }
+                    setValidationErrors(errors);
+                    return Promise.reject();
                 }}
             >
                 Submit
-            </Button>
+            </LoadingButton>
         </Form>
     );
 };

@@ -7,6 +7,7 @@ import { csvImportToEvents, validateEventCSV } from '../../service/events';
 import { isValid } from '../../service';
 import EventValidationRow from './EventValidationRow';
 import './EventImportForm.scss';
+import LoadingButton from '../LoadingButton';
 
 const papaparseOptions = {
     header: true,
@@ -48,16 +49,17 @@ const EventImportForm = ({
                         ))}
                     </tbody>
                 </Table>
-                <Button
-                    className="submit-button"
-                    disabled={validation.some(validationError => (!isValid(validationError)))}
-                    variant="primary"
-                    onClick={() => {
-                        onSave(csvImportToEvents(events, locations, areas, openHouses)).then(() => onClose());
+                <LoadingButton
+                    buttonProps={{
+                        className: 'submit-button',
+                        variant: 'primary',
                     }}
+                    disabled={validation.some(validationError => (!isValid(validationError)))}
+                    onClick={() => onSave(csvImportToEvents(events, locations, areas, openHouses))}
+                    onSuccess={() => onClose()}
                 >
                     Submit
-                </Button>
+                </LoadingButton>
                 <Button
                     variant="primary"
                     onClick={() => {

@@ -23,6 +23,7 @@ export const getEvents = () => (dispatch) => {
                 type: actionTypes.FETCH_EVENTS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -49,6 +50,7 @@ export const editEvent = event => (dispatch, getState) => {
                 type: actionTypes.EDIT_EVENTS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -75,6 +77,7 @@ export const createEvents = events => (dispatch, getState) => {
                 type: actionTypes.CREATE_EVENTS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({

@@ -21,6 +21,7 @@ export const getEateries = () => (dispatch) => {
                 type: actionTypes.FETCH_EATERIES_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -47,6 +48,7 @@ export const editEatery = eatery => (dispatch, getState) => {
                 type: actionTypes.EDIT_EATERIES_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -73,6 +75,7 @@ export const createEatery = eatery => (dispatch, getState) => {
                 type: actionTypes.CREATE_EATERIES_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -99,6 +102,7 @@ export const deleteEatery = eateryID => (dispatch, getState) => {
                 type: actionTypes.DELETE_EATERIES_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({

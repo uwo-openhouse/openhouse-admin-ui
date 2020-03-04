@@ -24,6 +24,7 @@ export const getOpenHouses = () => (dispatch) => {
                 type: actionTypes.FETCH_OPEN_HOUSES_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -50,6 +51,7 @@ export const editOpenHouse = openHouse => (dispatch, getState) => {
                 type: actionTypes.EDIT_OPEN_HOUSES_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -76,6 +78,7 @@ export const createOpenHouse = openHouse => (dispatch, getState) => {
                 type: actionTypes.CREATE_OPEN_HOUSES_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -102,6 +105,7 @@ export const deleteOpenHouse = openHouseID => (dispatch, getState) => {
                 type: actionTypes.DELETE_OPEN_HOUSES_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({

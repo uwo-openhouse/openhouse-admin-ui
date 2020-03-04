@@ -23,6 +23,7 @@ export const getAreas = () => (dispatch) => {
                 type: actionTypes.FETCH_AREAS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -49,6 +50,7 @@ export const editArea = area => (dispatch, getState) => {
                 type: actionTypes.EDIT_AREAS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -75,6 +77,7 @@ export const createArea = area => (dispatch, getState) => {
                 type: actionTypes.CREATE_AREAS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({
@@ -101,6 +104,7 @@ export const deleteArea = areaID => (dispatch, getState) => {
                 type: actionTypes.DELETE_AREAS_FAILURE,
                 payload: error,
             });
+            return Promise.reject();
         })
         .finally(() => {
             dispatch({

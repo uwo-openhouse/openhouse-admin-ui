@@ -5,9 +5,15 @@ import { getEvent } from '../../reducers';
 import DeleteForm from '../../components/EditList/DeleteForm';
 
 
-const mapStateToProps = (state, { id }) => ({
-    name: getEvent(state, id).name,
-});
+const mapStateToProps = (state, { id }) => {
+    const event = getEvent(state, id);
+    if (!event) {
+        return {};
+    }
+    return ({
+        name: event.name,
+    });
+};
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     onDelete: deleteEvent,

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import * as PropTypes from 'prop-types';
 import FormOptionSelector from '../Form/FormOptionSelector';
 import FormTimePicker from '../Form/FormTimePicker';
 import FormValidationError from '../Form/FormValidationError';
 import { validateEvent } from '../../service/events';
 import { isValid } from '../../service';
+import LoadingButton from '../LoadingButton';
 
 const EventEditForm = ({
     onClose, onSave, event, openHouses, locations, areas,
@@ -68,22 +69,25 @@ const EventEditForm = ({
                 <FormOptionSelector placeHolder="Select OpenHouse" value={openHouse} onChange={setOpenHouse} options={openHouses} />
                 <FormValidationError attribute="openHouse" validation={validationErrors} />
             </Form.Group>
-            <Button
-                variant="primary"
+            <LoadingButton
+                buttonProps={{
+                    variant: 'primary',
+                }}
+                onSuccess={() => onClose()}
                 onClick={() => {
                     const newEvent = {
                         ...event, name, description, area, building, openHouse, startTime, endTime, room,
                     };
                     const errors = validateEvent(newEvent, locations, areas, openHouses);
                     if (isValid(errors)) {
-                        onSave(newEvent).then(() => onClose());
-                    } else {
-                        setValidationErrors(errors);
+                        return onSave(newEvent);
                     }
+                    setValidationErrors(errors);
+                    return Promise.reject();
                 }}
             >
                 Submit
-            </Button>
+            </LoadingButton>
         </Form>
     );
 };

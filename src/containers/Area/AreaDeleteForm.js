@@ -5,9 +5,15 @@ import DeleteForm from '../../components/EditList/DeleteForm';
 import { deleteArea } from '../../actions/areas';
 
 
-const mapStateToProps = (state, { id }) => ({
-    name: getArea(state, id).name,
-});
+const mapStateToProps = (state, { id }) => {
+    const area = getArea(state, id);
+    if (!area) {
+        return {};
+    }
+    return {
+        name: area.name,
+    };
+};
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     onDelete: deleteArea,

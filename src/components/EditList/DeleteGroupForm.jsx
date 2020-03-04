@@ -1,6 +1,7 @@
-import { Badge, Button, Form } from 'react-bootstrap';
+import { Badge, Form } from 'react-bootstrap';
 import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
+import LoadingButton from '../LoadingButton';
 
 
 const DeleteGroupForm = ({
@@ -27,17 +28,16 @@ const DeleteGroupForm = ({
                 </Form.Label>
                 <Form.Control placeholder="name" defaultValue={enteredName} onChange={event => setEnteredName(event.target.value)} />
             </Form.Group>
-            <Button
-                variant="danger"
-                disabled={enteredName !== 'DELETE'}
-                onClick={() => {
-                    onDelete().then(() => {
-                        onClose();
-                    });
+            <LoadingButton
+                buttonProps={{
+                    variant: 'danger',
                 }}
+                disabled={enteredName !== 'DELETE'}
+                onClick={onDelete}
+                onSuccess={onClose}
             >
                 Delete
-            </Button>
+            </LoadingButton>
         </Form>
     );
 };

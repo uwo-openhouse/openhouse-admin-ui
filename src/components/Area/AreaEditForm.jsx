@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { SketchPicker } from 'react-color';
 import * as PropTypes from 'prop-types';
 import FormValidationError from '../Form/FormValidationError';
 import { validateArea } from '../../service/areas';
 import { isValid } from '../../service';
+import LoadingButton from '../LoadingButton';
 
 
 const AreaEditForm = ({ onClose, onSave, area }) => {
@@ -28,20 +29,23 @@ const AreaEditForm = ({ onClose, onSave, area }) => {
                 />
                 <FormValidationError attribute="color" validation={validationErrors} />
             </Form.Group>
-            <Button
-                variant="primary"
+            <LoadingButton
+                buttonProps={{
+                    variant: 'primary',
+                }}
+                onSuccess={() => onClose()}
                 onClick={() => {
                     const newArea = { ...area, name, color };
                     const errors = validateArea(newArea);
                     if (isValid(errors)) {
-                        onSave(newArea).then(() => onClose());
-                    } else {
-                        setValidationErrors(errors);
+                        return onSave(newArea);
                     }
+                    setValidationErrors(errors);
+                    return Promise.reject();
                 }}
             >
                 Submit
-            </Button>
+            </LoadingButton>
         </Form>
     );
 };
